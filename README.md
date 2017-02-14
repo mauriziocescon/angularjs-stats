@@ -31,6 +31,6 @@ Than, somewhere in your code:
  
 ```typescript
 import {analyzeWebApp} from "angular-stats";
-
+...
 var analisys = analyzeWebApp(); 
 ``` 
