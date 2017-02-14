@@ -1,0 +1,22 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "diagnostics": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noEmitOnError": false,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "outDir": "./dist",
+    "pretty": true,
+    "removeComments": false,
+    "target": "ES5"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
