@@ -6,6 +6,9 @@ export class AngularStats {
 	private window: ng.IWindowService;
 	private timeout: ng.ITimeoutService;
 
+	private startingElement: string;
+	private digestInfo = {duration: "0"};
+
 	static $inject = ["$rootScope", "$document", "$window", "$timeout"];
 
 	constructor($rootScope: ng.IRootScopeService,
@@ -18,12 +21,7 @@ export class AngularStats {
 		this.timeout = $timeout;
 	}
 
-	/**
-	 * Count the number of scopes / watchers
-	 * for every component. Analyze the DOM
-	 */
 	public analyzeWebApp(): string {
-
 		const scopesList = [];
 		const watchersList = [];
 		const componentsInfo = {};
@@ -70,9 +68,7 @@ export class AngularStats {
 		};
 
 		const detectFromElement = (element) => {
-
 			domElementsCount++;
-
 			if (element.data().hasOwnProperty("$scope")) analizeScope(element.data()["$scope"]);
 
 			angular.forEach(element.children(), (childElement: HTMLElement) => {
@@ -81,19 +77,33 @@ export class AngularStats {
 				} else {
 					nodeNameList[childElement.nodeName]++;
 				}
-
 				detectFromElement(this.document.find(childElement));
 			});
 		};
 
+		const calculateDigestDuration = () => {
+			let duration = 0;
+			let scopePrototype = Object.getPrototypeOf(this.rootScope);
+			let angularDigest = scopePrototype.$digest;
+
+			scopePrototype.$digest = (...args) => {
+				let start = performance.now();
+				angularDigest.apply(this.rootScope, args);
+				duration = performance.now() - start;
+				this.digestInfo.duration = duration.toFixed(2);
+			};
+		};
+
 		analizeScope(this.rootScope);
-		detectFromElement(this.document.find("[ui-view]"));
+		detectFromElement(this.document.find("app"));
+		calculateDigestDuration();
 
 		let mex = "GENERAL\n";
 		mex += "------------------------\n";
 		mex += "Tot scopes: " + scopesList.length + "\n";
 		mex += "Tot watchers: " + watchersList.length + "\n";
-		mex += "Tot DOM Elements: " + domElementsCount + "\n\n";
+		mex += "Tot DOM Elements: " + domElementsCount + "\n";
+		mex += "Digest duration: " + this.digestInfo.duration + " ms \n\n";
 
 		mex += "\nCOMPONENTS\n";
 		mex += "------------------------\n";
