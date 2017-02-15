@@ -10,5 +10,7 @@ declare namespace angularstats {
 		 * for every component. Analyze the DOM
 		 */
 		analyzeWebApp: () => string;
+
+		set startingElement: string;
 	}
 }
