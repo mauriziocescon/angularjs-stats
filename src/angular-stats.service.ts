@@ -99,20 +99,20 @@ export class AngularStats {
 		calculateDigestDuration();
 
 		let mex = "GENERAL\n";
-		mex += "------------------------\n";
+		mex += "----------------------\n";
 		mex += "Tot scopes: " + scopesList.length + "\n";
 		mex += "Tot watchers: " + watchersList.length + "\n";
 		mex += "Tot DOM Elements: " + domElementsCount + "\n";
 		mex += "Digest duration: " + this.digestInfo.duration + " ms \n\n";
 
 		mex += "\nCOMPONENTS\n";
-		mex += "------------------------\n";
+		mex += "----------------------\n";
 		for (let name in componentsInfo) {
 			mex += "- " + name.toUpperCase() + "\n" + "s: " + componentsInfo[name].scopesCount + ", w: " + componentsInfo[name].watchers.length + "\n";
 		}
 
 		mex += "\n\nHTMLElement\n";
-		mex += "------------------------\n";
+		mex += "----------------------\n";
 		for (let nodeName in nodeNameList) {
 			mex += nodeName + ": " + nodeNameList[nodeName] + "\n";
 		}
