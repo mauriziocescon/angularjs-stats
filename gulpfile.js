@@ -32,13 +32,13 @@ gulp.task("compile-ts", function () {
 
 gulp.task("concat-files", function () {
     return gulp.src(paths.js)
-        .pipe(gulpConcat("angular-stats.js"))
+        .pipe(gulpConcat("angular-stats.min.js"))
         .pipe(gulpUglify({mangle: false}))
         .pipe(gulp.dest("dist/"));
 });
 
 gulp.task("clean-dist", function () {
-    return del.sync(["dist/**/*", "!dist/angular-stats.js"]);
+    return del.sync(["dist/**/*", "!dist/angular-stats.min.js"]);
 });
 
 gulp.task("build", function () {

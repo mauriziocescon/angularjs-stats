@@ -6,31 +6,48 @@ This is a lightweight utility that gives you some statistics about you angular a
 1. number of scopes,
 2. number of watchers,
 3. number of DOM elements,
+4. duration of digest cycle,
 
 in your current view. For every angular component where you define the property ``name``, you also get 
 
-4. Number of watchers per component.
+5. Number of watchers per component.
 
 Keep in mind that ``name`` has to be defined on your controller function or class, not binded to the controller scope. In the library there is also the interface for using it with ``Typescript``.
 
 ## Installation
 
-npm install angular-stats --save
+``npm install angular-stats --save``
 
 **Requirements:** angular 1.5+ (right now the utility is not working with angular 2.x)
+
+## Build
+
+``npm run build``
 
 ## Usage
 
 Register the module
 
-```typescript
-angular.module("myApp", ["angular-stats"]);
+```javascript
+angular.module("myApp", ["angularStats"]);
 ```
 
 Than, somewhere in your code:
  
-```typescript
-import {analyzeWebApp} from "angular-stats";
-...
-var analisys = analyzeWebApp(); 
+```javascript
+class AppController {
+
+	static $inject = ["AngularStats"];
+
+	constructor(AngularStats) {
+	    this.angularStats = AngularStats;
+	    
+		this.name = "AppComponent";
+	}
+
+	$onInit() {
+	    this.angularStats.setStartingElement("#ng-app");
+	    let analisys = analyzeWebApp();
+	}
+} 
 ``` 

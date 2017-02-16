@@ -93,9 +93,9 @@ export class AngularStats {
 			let angularDigest = scopePrototype.$digest;
 
 			scopePrototype.$digest = (...args) => {
-				let start = performance.now();
+				let start = performance ? performance.now() : this.getTimeFrom1970();
 				angularDigest.apply(this.rootScope, args);
-				duration = performance.now() - start;
+				duration = performance ? (performance.now() - start) : (this.getTimeFrom1970() - start);
 				this.digestInfo.duration = duration.toFixed(2);
 			};
 		};
@@ -124,5 +124,13 @@ export class AngularStats {
 		}
 
 		return mex;
+	}
+
+	private getTimeFrom1970(): number {
+		return this.getNow().getTime();
+	}
+
+	private getNow(): Date {
+		return new Date();
 	}
 }
