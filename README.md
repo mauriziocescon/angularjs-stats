@@ -43,7 +43,6 @@ class AppController {
 
 	constructor(AngularStats) {
 	    this.angularStats = AngularStats;
-	    
 		this.name = "AppComponent";
 	}
 
@@ -57,5 +56,21 @@ class AppController {
 	    this.angularStats.setStartingElement("#ng-app");
 	    let analisys = analyzeWebApp();
 	}
-} 
+}
+``` 
+or 
+```javascript
+angular.module("myApp").controller("AppController", ["$scope", "AngularStats", function($scope, AngularStats) {
+    
+    $onInit = function() {
+	    /**
+	    * By default, AngularStats will search for
+	     * an element like <app></app>. If you want 
+	     * to change it, set a different starting
+	     * point with a valid selector
+        */
+	    AngularStats.setStartingElement("#ng-app");
+	    var analisys = analyzeWebApp();
+	}
+}]);
 ``` 
