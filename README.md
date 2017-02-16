@@ -50,7 +50,7 @@ class AppController {
 	$onInit() {
 	    /**
 	    * By default, AngularStats will search for
-	     * an element <app></app>. If you want 
+	     * an element like <app></app>. If you want 
 	     * to change it, set a different starting
 	     * point with a valid selector
         */
