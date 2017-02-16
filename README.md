@@ -14,11 +14,13 @@ in your current view. For every angular component where you define the property 
 
 Keep in mind that ``name`` has to be defined on your controller function or class, not binded to the controller scope. In the library there is also the interface for using it with ``Typescript``.
 
+## Requirements
+
+angular 1.5+ (right now the utility is not working with angular 2.x)
+
 ## Installation
 
 ``npm install angular-stats --save``
-
-**Requirements:** angular 1.5+ (right now the utility is not working with angular 2.x)
 
 ## Build
 
