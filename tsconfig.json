@@ -4,7 +4,7 @@
     "diagnostics": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "module": "CommonJS",
+    "module": "UMD",
     "moduleResolution": "Node",
     "noEmitOnError": false,
     "noFallthroughCasesInSwitch": false,

@@ -25,8 +25,9 @@ gulp.task("empty-dist", function () {
 });
 
 gulp.task("compile-ts", function () {
+    var gulpTypescriptProject = gulpTypescript.createProject("tsconfig.json");
     return gulp.src(paths.tsEntries)
-        .pipe(gulpTypescript())
+        .pipe(gulpTypescriptProject())
         .pipe(gulp.dest("dist/"));
 });
 
