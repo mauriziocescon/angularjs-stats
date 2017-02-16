@@ -6,7 +6,7 @@ export class AngularStats {
 	private window: ng.IWindowService;
 	private timeout: ng.ITimeoutService;
 
-	private _startingElement: string;
+	private startingElement: any;
 	private digestInfo = {duration: "0"};
 
 	static $inject = ["$rootScope", "$document", "$window", "$timeout"];
@@ -20,11 +20,11 @@ export class AngularStats {
 		this.window = $window;
 		this.timeout = $timeout;
 
-		this._startingElement = "app";
+		this.startingElement = "app";
 	}
 
-	public set startingElement(element: string) {
-		this._startingElement = element;
+	public setStartingElement(element: any): void {
+		this.startingElement = element;
 	}
 
 	public analyzeWebApp(): string {
