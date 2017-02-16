@@ -13,6 +13,7 @@ in your current view. For every angular component where you define the property 
 5. Number of watchers per component.
 
 Keep in mind that ``name`` has to be defined on your controller function or class, not binded to the controller scope. In the library there is also the interface for using it with ``Typescript``.
+The library is built using ``UMD`` module system, so you can use it in the way you prefer (global / CommonJS / AMD).
 
 ## Requirements
 
