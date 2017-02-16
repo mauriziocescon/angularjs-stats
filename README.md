@@ -48,6 +48,12 @@ class AppController {
 	}
 
 	$onInit() {
+	    /**
+	    * By default, AngularStats will search for
+	     * an element <app></app>. If you want 
+	     * to change it, set a different starting
+	     * point with a valid selector
+        */
 	    this.angularStats.setStartingElement("#ng-app");
 	    let analisys = analyzeWebApp();
 	}
