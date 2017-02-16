@@ -60,17 +60,18 @@ class AppController {
 ``` 
 or 
 ```javascript
-angular.module("myApp").controller("AppController", ["$scope", "AngularStats", function($scope, AngularStats) {
+angular.module("myApp")
+    .controller("AppController", ["$scope", "AngularStats", function($scope, AngularStats) {
     
-    $onInit = function() {
-	    /**
-	    * By default, AngularStats will search for
-	     * an element like <app></app>. If you want 
-	     * to change it, set a different starting
-	     * point with a valid selector
-        */
-	    AngularStats.setStartingElement("#ng-app");
-	    var analisys = analyzeWebApp();
-	}
+        $onInit = function() {
+            /**
+            * By default, AngularStats will search for
+             * an element like <app></app>. If you want 
+             * to change it, set a different starting
+             * point with a valid selector
+            */
+            AngularStats.setStartingElement("#ng-app");
+            var analisys = analyzeWebApp();
+        }
 }]);
 ``` 
