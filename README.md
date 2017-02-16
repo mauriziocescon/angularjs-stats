@@ -28,7 +28,7 @@ angular 1.5+ (right now the utility is not working with angular 2.x)
 
 ## Usage
 
-Register the module
+Register the module ``angularStats``
 
 ```javascript
 angular.module("myApp", ["angularStats"]);
