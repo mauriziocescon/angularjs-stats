@@ -9,6 +9,7 @@ var del = require("del");
 var fs = require("fs");
 var gulp = require("gulp");
 var gulpUglify = require("gulp-uglify");
+var path = require("path");
 var runSequence = require("run-sequence");
 var tsify = require("tsify");
 var vinylBuffer = require("vinyl-buffer");
@@ -30,28 +31,26 @@ gulp.task("empty-dist", function () {
 });
 
 gulp.task("compile-ts", function () {
-    var gulpTypescriptProject = gulpTypescript.createProject("tsconfig.json");
-    return gulp.src(paths.tsEntries)
-        .pipe(gulpTypescriptProject())
-        .pipe(gulp.dest("dist/"));
-});
-
-gulp.task("concat-files", function () {
-    return gulp.src(paths.js)
-        .pipe(gulpConcat("angular-stats.min.js"))
+    return browserify({
+        basedir: ".",
+        cache: {},
+        entries: paths.browserifyEntries,
+        packageCache: {},
+        standalone: ["angularStats"]
+    })
+        .plugin(tsify)
+        .transform(babelify, {presets: ["es2015"], extensions: [".tsx", ".ts"]})
+        .bundle()
+        .pipe(vinylSourceStream(appendVersionToFileName("app.js")))
+        .pipe(vinylBuffer())
+        .pipe(gulpNgAnnotate())
         .pipe(gulpUglify({mangle: false}))
-        .pipe(gulp.dest("dist/"));
-});
-
-gulp.task("clean-dist", function () {
-    return del.sync(["dist/**/*", "!dist/angular-stats.min.js"]);
+        .pipe(gulp.dest("dist/js/"));
 });
 
 gulp.task("build", function () {
     runSequence(
         "empty-dist",
-        "compile-ts",
-        "concat-files",
-        "clean-dist"
+        "compile-ts"
     );
 });
