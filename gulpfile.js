@@ -3,16 +3,21 @@
 /* Build scripts            */
 /*--------------------------*/
 
+var babelify = require("babelify");
+var browserify = require("browserify");
 var del = require("del");
+var fs = require("fs");
 var gulp = require("gulp");
-var gulpConcat = require("gulp-concat");
-var gulpTypescript = require("gulp-typescript");
 var gulpUglify = require("gulp-uglify");
 var runSequence = require("run-sequence");
+var tsify = require("tsify");
+var vinylBuffer = require("vinyl-buffer");
+var vinylSourceStream = require("vinyl-source-stream");
+
+var package = JSON.parse(fs.readFileSync("./package.json"));
 
 var paths = {
-    tsEntries: ["src/index.ts", "src/angular-stats.service.ts"],
-    js: ["dist/index.js", "dist/angular-stats.service.js"]
+    browserifyEntries: ["src/index.ts"],
 };
 
 
