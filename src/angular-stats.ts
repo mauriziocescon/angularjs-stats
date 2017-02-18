@@ -4,14 +4,12 @@ class AngularStats {
 	private window: ng.IWindowService;
 	private timeout: ng.ITimeoutService;
 
-
 	private scopesList: Array<any>;
 	private watchersList: Array<any>;
 	private componentsInfo: Object;
 
 	private domElementsCount: number;
 	private nodeNameList: Object;
-
 
 	private startingElement: any;
 	private digestInfo = {duration: "0"};
