@@ -3,22 +3,18 @@
 /* Build scripts            */
 /*--------------------------*/
 
-var babelify = require("babelify");
 var browserify = require("browserify");
 var del = require("del");
-var fs = require("fs");
 var gulp = require("gulp");
+var gulpNgAnnotate = require("gulp-ng-annotate");
 var gulpUglify = require("gulp-uglify");
-var path = require("path");
 var runSequence = require("run-sequence");
 var tsify = require("tsify");
 var vinylBuffer = require("vinyl-buffer");
 var vinylSourceStream = require("vinyl-source-stream");
 
-var package = JSON.parse(fs.readFileSync("./package.json"));
-
 var paths = {
-    browserifyEntries: ["src/index.ts"],
+    browserifyEntries: ["src/angular-stats.ts"]
 };
 
 
@@ -35,22 +31,37 @@ gulp.task("compile-ts", function () {
         basedir: ".",
         cache: {},
         entries: paths.browserifyEntries,
-        packageCache: {},
-        standalone: ["angularStats"]
+        packageCache: {}
     })
         .plugin(tsify)
-        .transform(babelify, {presets: ["es2015"], extensions: [".tsx", ".ts"]})
+        .exclude("angular")
         .bundle()
-        .pipe(vinylSourceStream(appendVersionToFileName("app.js")))
+        .pipe(vinylSourceStream("angular-stats.js"))
+        .pipe(vinylBuffer())
+        .pipe(gulp.dest("dist/"));
+});
+
+gulp.task("compile-ts-mim", function () {
+    return browserify({
+        basedir: ".",
+        cache: {},
+        entries: paths.browserifyEntries,
+        packageCache: {}
+    })
+        .plugin(tsify)
+        .exclude("angular")
+        .bundle()
+        .pipe(vinylSourceStream("angular-stats.mim.js"))
         .pipe(vinylBuffer())
         .pipe(gulpNgAnnotate())
         .pipe(gulpUglify({mangle: false}))
-        .pipe(gulp.dest("dist/js/"));
+        .pipe(gulp.dest("dist/"));
 });
 
 gulp.task("build", function () {
     runSequence(
         "empty-dist",
-        "compile-ts"
+        "compile-ts",
+        "compile-ts-mim"
     );
 });

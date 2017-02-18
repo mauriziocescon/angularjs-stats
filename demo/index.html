@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Demo</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="../dist/angular-stats.js"></script>
+    <link rel="stylesheet" href="app.css"/>
 </head>
 <body>
-    <div ng-app="demo">
+    <div class="app" ng-app="demo">
+
+        <div class="stat-ctrl" ng-controller="StatCtrl">
+            <div><pre>{{ getStats() }}</pre></div>
+        </div>
+
+        <div class="main-ctrl" ng-controller="MainCtrl">
+            <button class="btn" ng-click="clickButton()">Run a digest cycle</button>
+            <div ng-repeat="value in values">{{ value }}</div>
+        </div>
 
     </div>
 </body>
