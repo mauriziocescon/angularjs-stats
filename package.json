@@ -2,10 +2,14 @@
   "name": "angular-stats",
   "version": "0.1.0",
   "description": "Little utility to show stats about your angular app",
-  "main": "dist/angular-stats.js",
+  "main": "dist/angular-stats.min.js",
   "typings": "src/angular-stats",
   "scripts": {
     "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mauriziocescon/angular-stats"
   },
   "keywords": [
     "angular",
