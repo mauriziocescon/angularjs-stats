@@ -12,7 +12,7 @@ in your current view. For every angular component where you define the property 
 
 5. Number of watchers per component.
 
-Keep in mind that ``name`` has to be defined on your controller function or class, not binded to the controller scope. In the library there is also the interface for using it with ``Typescript``.
+Keep in mind that ``name`` can be defined on your controller class or binded to the controller scope. In the library there is also the interface for using it with ``Typescript``.
 The library is exported using ``UMD`` (Universal Module Definition). 
 
 ## Requirements
@@ -64,7 +64,8 @@ or
 angular.module("myApp")
     .controller("AppController", ["$scope", "AngularStats", function($scope, AngularStats) {
     
-        $onInit = function() {
+        this.$onInit = function() {
+            $scope.name = "AppComponent";
             /**
             * By default, AngularStats will search for
              * an element like <app></app>. If you want 
