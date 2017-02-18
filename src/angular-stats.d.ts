@@ -1,10 +1,10 @@
-declare var angularstats: angularstats.IAngularStats;
+/// <reference types="angular" />
 
-export = angularstats;
+import * as angular from "angular";
 
-declare namespace angularstats {
+declare module "angular" {
 
-	interface IAngularStats {
+	export interface IAngularStats {
 		/**
 		 * Set the element from where the
 		 * analysis will start
