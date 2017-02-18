@@ -12,7 +12,7 @@ in your current view. For every angular component where you define the property 
 
 5. Number of watchers per component.
 
-Keep in mind that ``name`` can be defined on your controller class or binded to the controller scope. In the library there is also the interface for using it with ``Typescript``.
+The property ``name`` can be defined on your controller class or binded to the scope. In ``src`` there is also the ``Typescript`` interface.
 The library is exported using ``UMD`` (Universal Module Definition). 
 
 ## Requirements
@@ -37,7 +37,7 @@ angular.module("myApp", ["angularStats"]);
 
 Than, somewhere in your code:
  
-```javascript
+```typescript
 class AppController {
 
 	static $inject = ["AngularStats"];
