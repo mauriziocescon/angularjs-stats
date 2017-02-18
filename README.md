@@ -54,7 +54,7 @@ class AppController {
 	     * to change it, set a different starting
 	     * point with a valid selector
         */
-	    this.angularStats.setStartingElement("#ng-app");
+	    this.angularStats.setStartingElement("app");
 	    let analisys = analyzeWebApp();
 	}
 }
@@ -72,7 +72,7 @@ angular.module("myApp")
              * to change it, set a different starting
              * point with a valid selector
             */
-            AngularStats.setStartingElement("#ng-app");
+            AngularStats.setStartingElement("[ng-app]");
             var analisys = analyzeWebApp();
         }
 }]);
