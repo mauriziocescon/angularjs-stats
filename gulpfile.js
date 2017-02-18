@@ -34,7 +34,6 @@ gulp.task("compile-ts", function () {
         packageCache: {}
     })
         .plugin(tsify)
-        .exclude("angular")
         .bundle()
         .pipe(vinylSourceStream("angular-stats.js"))
         .pipe(vinylBuffer())

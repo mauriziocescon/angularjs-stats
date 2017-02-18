@@ -15,7 +15,7 @@
     "pretty": true,
     "removeComments": false,
     "target": "ES5",
-    "types": []
+    "types": ["angular"]
   },
   "exclude": [
     "node_modules"
