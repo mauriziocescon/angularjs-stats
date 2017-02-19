@@ -1,4 +1,4 @@
-class AngularStatsService {
+class AngularStats {
 	private rootScope: ng.IRootScopeService;
 	private document: ng.IDocumentService;
 	private window: ng.IWindowService;
@@ -152,5 +152,5 @@ class AngularStatsService {
 	}
 }
 
-const angularStats = angular.module("angularStats", [])
-	.service("AngularStatsService", AngularStatsService);
+angular.module("angular-stats", [])
+	.service("AngularStats", AngularStats);

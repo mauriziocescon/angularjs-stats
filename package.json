@@ -1,6 +1,6 @@
 {
   "name": "angular-stats",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Little utility to show stats about your angular app",
   "main": "index.js",
   "typings": "./src/angular-stats.service",
