@@ -17,8 +17,8 @@ You can either ``require`` it using CommonJS syntax (you need a module resolver)
 
 ## Requirements
 
-angular 1.5+ (right now the utility is not working with angular 2.x)
-jQuery 2.x+
+1. angular 1.5+ (right now the utility is not working with angular 2.x)
+2. jQuery 2.x+
 
 ## Installation
 
