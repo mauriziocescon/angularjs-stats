@@ -1,2 +1,2 @@
-require("./src/angular-stats.service.d");
+require("./src/angular-stats.service");
 module.exports = "angularStats";
