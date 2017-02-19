@@ -13,7 +13,7 @@ For every angular component where you define the property ``name``, you get also
 5. Number of watchers per component.
 
 The property ``name`` can be defined on your controller class or binded to the scope. In ``src`` there is also the ``Typescript`` interface.
-You can either ``require`` it using CommonJS syntax (you need a module resolver) or load it using in a script. 
+You can either ``require`` it using CommonJS syntax (you need a module resolver) or load it using a script. 
 
 ## Requirements
 
