@@ -30,9 +30,9 @@ You can either ``require`` it using CommonJS syntax (you need a module resolver)
 
 ## Usage
 
-Typescript 
- 
 ```typescript
+// Typescript + ES2015 modules
+
 export const app = angular.module("myApp", ["angular-stats"])
     .component("app", AppComponent)
     .name;
@@ -65,9 +65,9 @@ export class AppController {
 }
 ``` 
 
-Javascript 
-
 ```javascript
+// Javascript
+
 angular.module("myApp", ["angular-stats"])
     .controller("AppController", ["$scope", "AngularStats", function($scope, AngularStats) {
         
