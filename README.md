@@ -13,11 +13,12 @@ in your current view. For every angular component where you define the property 
 5. Number of watchers per component.
 
 The property ``name`` can be defined on your controller class or binded to the scope. In ``src`` there is also the ``Typescript`` interface.
-The library is exported using ``UMD`` (Universal Module Definition). 
+You can either ``require`` it using CommonJS syntax (you need a module resolver) or load it using in a script. 
 
 ## Requirements
 
 angular 1.5+ (right now the utility is not working with angular 2.x)
+jQuery 2.x+
 
 ## Installation
 
@@ -31,21 +32,26 @@ angular 1.5+ (right now the utility is not working with angular 2.x)
 
 Register the module ``angularStats``
 
-```javascript
-angular.module("myApp", ["angularStats"]);
-```
-
-Than, somewhere in your code:
- 
 ```typescript
-class AppController {
+export const app = angular.module("myApp", ["angular-stats"])
+    .component("app", AppComponent)
+    .name;
 
+// ...define your AppComponent using an AppController like this: 
+
+export class AppController {
+	private angularStats: ng.mc.IAngularStats;
+	
 	static $inject = ["AngularStats"];
 
-	constructor(AngularStats) {
+	constructor(AngularStats: ng.mc.IAngularStats) {
 	    this.angularStats = AngularStats;
 		this.name = "AppComponent";
 	}
+	
+	get analysis(): string {
+		return "<pre>" + this.angularStats.analyzeWebApp() + "</pre>";
+    }
 
 	$onInit() {
 	    /**
@@ -55,15 +61,14 @@ class AppController {
 	     * point with a valid selector
         */
 	    this.angularStats.setStartingElement("app");
-	    let analisys = analyzeWebApp();
 	}
 }
 ``` 
 or 
 ```javascript
-angular.module("myApp")
+angular.module("myApp", ["angular-stats"])
     .controller("AppController", ["$scope", "AngularStats", function($scope, AngularStats) {
-    
+        
         this.$onInit = function() {
             $scope.name = "AppComponent";
             /**
@@ -73,7 +78,10 @@ angular.module("myApp")
              * point with a valid selector
             */
             AngularStats.setStartingElement("[ng-app]");
-            var analisys = analyzeWebApp();
+        }
+        
+        $scope.getStats = function() {
+            return "<pre>" + AngularStats.analyzeWebApp() + "</pre>";
         }
 }]);
 ``` 
