@@ -1,5 +1,5 @@
-var AngularStats = (function () {
-    function AngularStats($rootScope, $document, $window, $timeout) {
+var AngularStatsService = (function () {
+    function AngularStatsService($rootScope, $document, $window, $timeout) {
         this.digestInfo = { duration: "0" };
         this.rootScope = $rootScope;
         this.document = $document;
@@ -7,10 +7,10 @@ var AngularStats = (function () {
         this.timeout = $timeout;
         this.startingElement = "app";
     }
-    AngularStats.prototype.setStartingElement = function (element) {
+    AngularStatsService.prototype.setStartingElement = function (element) {
         this.startingElement = element;
     };
-    AngularStats.prototype.analyzeWebApp = function () {
+    AngularStatsService.prototype.analyzeWebApp = function () {
         this.scopesList = [];
         this.watchersList = [];
         this.componentsInfo = {};
@@ -27,7 +27,7 @@ var AngularStats = (function () {
         }
         return this.composeMessage();
     };
-    AngularStats.prototype.composeMessage = function () {
+    AngularStatsService.prototype.composeMessage = function () {
         var mex = "GENERAL\n";
         mex += "----------------------\n";
         mex += "Tot scopes: " + this.scopesList.length + "\n";
@@ -46,7 +46,7 @@ var AngularStats = (function () {
         }
         return mex;
     };
-    AngularStats.prototype.analizeScope = function (currentScope) {
+    AngularStatsService.prototype.analizeScope = function (currentScope) {
         var _this = this;
         if (this.scopesList.indexOf(currentScope) == -1) {
             this.scopesList.push(currentScope);
@@ -79,7 +79,7 @@ var AngularStats = (function () {
             }
         }
     };
-    AngularStats.prototype.detectFromElement = function (element) {
+    AngularStatsService.prototype.detectFromElement = function (element) {
         var _this = this;
         this.domElementsCount++;
         if (element.data().hasOwnProperty("$scope"))
@@ -94,7 +94,7 @@ var AngularStats = (function () {
             _this.detectFromElement(_this.document.find(childElement));
         });
     };
-    AngularStats.prototype.calculateDigestDuration = function () {
+    AngularStatsService.prototype.calculateDigestDuration = function () {
         var _this = this;
         var duration = 0;
         var scopePrototype = Object.getPrototypeOf(this.rootScope);
@@ -111,14 +111,14 @@ var AngularStats = (function () {
         };
     };
     ;
-    AngularStats.prototype.getTimeFrom1970 = function () {
+    AngularStatsService.prototype.getTimeFrom1970 = function () {
         return this.getNow().getTime();
     };
-    AngularStats.prototype.getNow = function () {
+    AngularStatsService.prototype.getNow = function () {
         return new Date();
     };
-    return AngularStats;
+    return AngularStatsService;
 }());
-AngularStats.$inject = ["$rootScope", "$document", "$window", "$timeout"];
-angular.module("angularStats", [])
-    .service("AngularStats", AngularStats);
+AngularStatsService.$inject = ["$rootScope", "$document", "$window", "$timeout"];
+var angularStats = angular.module("angularStats", [])
+    .service("AngularStatsService", AngularStatsService);
