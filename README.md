@@ -8,7 +8,7 @@ This is a lightweight utility that gives you some statistics about you angular a
 3. number of DOM elements,
 4. duration of digest cycles,
 
-in your current view. For every angular component where you define the property ``name``, you also get 
+For every angular component where you define the property ``name``, you get also 
 
 5. Number of watchers per component.
 
