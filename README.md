@@ -30,8 +30,6 @@ jQuery 2.x+
 
 ## Usage
 
-Register the module ``angularStats``
-
 ```typescript
 export const app = angular.module("myApp", ["angular-stats"])
     .component("app", AppComponent)
