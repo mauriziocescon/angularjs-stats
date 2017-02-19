@@ -1,4 +1,4 @@
-angular.module("demo", ["angularStats"])
+angular.module("demo", ["angular-stats"])
     .controller("MainCtrl", ["$scope", function ($scope) {
         $scope.name = "MainCtrl";
         $scope.values = [0];

@@ -25,11 +25,11 @@ gulp.task("empty-dist", function () {
 });
 
 gulp.task("compile-ts", function () {
-    var tsProject = gulpTypescript.createProject('tsconfig.json');
+    var tsProject = gulpTypescript.createProject("tsconfig.json");
     return gulp.src(paths.tsEntries)
         .pipe(tsProject())
-        // .pipe(gulpUglify({mangle: false}))
-        .pipe(gulp.dest("dist/"));
+        .pipe(gulpUglify({mangle: false}))
+        .pipe(gulp.dest("./dist/"));
 });
 
 gulp.task("build", function () {
