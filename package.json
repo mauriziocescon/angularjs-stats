@@ -1,9 +1,9 @@
 {
   "name": "angular-stats",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Little utility to show stats about your angular app",
   "main": "index.js",
-  "typings": "./src/angular-stats",
+  "typings": "./src/angular-stats.d.ts",
   "scripts": {
     "build": "gulp build"
   },
