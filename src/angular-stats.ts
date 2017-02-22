@@ -82,7 +82,7 @@ class AngularStats {
 		if (this.scopesList.indexOf(currentScope) == -1) {
 			this.scopesList.push(currentScope);
 
-			const name = currentScope["$ctrl"] ? currentScope["$ctrl"]["name"] : (currentScope["name"] ? currentScope["name"] : "$scope_" + currentScope["$id"]);
+			const name = currentScope["$ctrl"] ? currentScope["$ctrl"]["name"] : (currentScope["name"] ? currentScope["name"] : "Unknown");
 			if (this.componentsInfo[name] == undefined) {
 				this.componentsInfo[name] = {
 					name: name, scopesCount: 1, watchers: []
