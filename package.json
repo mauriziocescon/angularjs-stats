@@ -2,7 +2,7 @@
   "name": "angular-stats",
   "version": "1.0.4",
   "description": "Little utility to show stats about your angular app",
-  "main": "index.js",
+  "main": "./dist/angular-stats.js",
   "typings": "./src/angular-stats.d.ts",
   "scripts": {
     "build": "gulp build"
@@ -31,13 +31,15 @@
     "jquery": "3.1.1"
   },
   "devDependencies": {
-    "@types/angular": "1.6.6",
+    "@types/angular": "1.6.5",
+    "browserify": "14.1.0",
     "del": "2.2.2",
     "gulp": "3.9.1",
-    "gulp-concat": "2.6.1",
-    "gulp-typescript": "3.1.5",
     "gulp-uglify": "2.0.1",
     "run-sequence": "1.2.2",
-    "typescript": "2.0.6"
+    "tsify": "3.0.1",
+    "typescript": "2.1.6",
+    "vinyl-buffer": "1.0.0",
+    "vinyl-source-stream": "1.1.0"
   }
 }

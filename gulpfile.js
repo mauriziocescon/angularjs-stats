@@ -3,16 +3,20 @@
 /* Build scripts            */
 /*--------------------------*/
 
+var browserify = require("browserify");
 var del = require("del");
 var gulp = require("gulp");
-var gulpConcat = require("gulp-concat");
-var gulpTypescript = require("gulp-typescript");
 var gulpUglify = require("gulp-uglify");
 var runSequence = require("run-sequence");
+var tsify = require("tsify");
+var vinylBuffer = require("vinyl-buffer");
+var vinylSourceStream = require("vinyl-source-stream");
 
 var paths = {
-    tsEntries: ["src/angular-stats.ts"],
-    js: ["dist/index.js", "dist/angular-stats.service.js"]
+    browserifyEntries: ["src/angular-stats.ts"],
+    dependencies: [
+        "angular"
+    ]
 };
 
 
@@ -25,11 +29,20 @@ gulp.task("empty-dist", function () {
 });
 
 gulp.task("compile-ts", function () {
-    var tsProject = gulpTypescript.createProject("tsconfig.json");
-    return gulp.src(paths.tsEntries)
-        .pipe(tsProject())
+    return browserify({
+        basedir: ".",
+        cache: {},
+        entries: paths.browserifyEntries,
+        packageCache: {},
+        standalone: "angular-stats"
+    })
+        .external(paths.dependencies)
+        .plugin(tsify)
+        .bundle()
+        .pipe(vinylSourceStream("angular-stats.js"))
+        .pipe(vinylBuffer())
         .pipe(gulpUglify({mangle: false}))
-        .pipe(gulp.dest("./dist/"));
+        .pipe(gulp.dest("dist/"));
 });
 
 gulp.task("build", function () {
