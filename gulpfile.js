@@ -36,19 +36,33 @@ gulp.task("compile-ts", function () {
         packageCache: {},
         standalone: "angular-stats"
     })
-        // .transform(deglobalify)
-        .ignore("angular")
         .plugin(tsify)
         .bundle()
         .pipe(vinylSourceStream("angular-stats.js"))
         .pipe(vinylBuffer())
-        // .pipe(gulpUglify({mangle: false}))
+        .pipe(gulp.dest("dist/"));
+});
+
+gulp.task("compile-ts-mim", function () {
+    return browserify({
+        basedir: ".",
+        cache: {},
+        entries: paths.browserifyEntries,
+        packageCache: {},
+        standalone: "angular-stats"
+    })
+        .plugin(tsify)
+        .bundle()
+        .pipe(vinylSourceStream("angular-stats.mim.js"))
+        .pipe(vinylBuffer())
+        .pipe(gulpUglify({mangle: false}))
         .pipe(gulp.dest("dist/"));
 });
 
 gulp.task("build", function () {
     runSequence(
         "empty-dist",
-        "compile-ts"
+        "compile-ts",
+        "compile-ts-mim"
     );
 });
