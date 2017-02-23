@@ -136,18 +136,18 @@ class AngularStats {
 		let angularDigest = scopePrototype.$digest;
 
 		scopePrototype.$digest = (...args) => {
-			let start = this.getTimeFrom1970();
+			let start = this.getTime();
 			angularDigest.apply(this.rootScope, args);
-			duration = this.getTimeFrom1970() - start;
+			duration = this.getTime() - start;
 			this.digestInfo.duration = duration.toFixed(2);
 		};
 	};
 
-	private getTimeFrom1970(): number {
-		return this.getNow().getTime();
+	private getTime(): number {
+		return performance ? performance.now() : this.getDate().getTime();
 	}
 
-	private getNow(): Date {
+	private getDate(): Date {
 		return new Date();
 	}
 }
