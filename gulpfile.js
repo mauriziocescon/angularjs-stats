@@ -36,12 +36,13 @@ gulp.task("compile-ts", function () {
         packageCache: {},
         standalone: "angular-stats"
     })
-        .external(paths.dependencies)
+        // .transform(deglobalify)
+        .ignore("angular")
         .plugin(tsify)
         .bundle()
         .pipe(vinylSourceStream("angular-stats.js"))
         .pipe(vinylBuffer())
-        .pipe(gulpUglify({mangle: false}))
+        // .pipe(gulpUglify({mangle: false}))
         .pipe(gulp.dest("dist/"));
 });
 
