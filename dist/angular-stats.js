@@ -125,7 +125,8 @@ var AngularStats = (function () {
 }());
 AngularStats.$inject = ["$rootScope", "$document", "$window", "$timeout"];
 exports.angularStats = angular.module("angular-stats", [])
-    .service("AngularStats", AngularStats);
+    .service("AngularStats", AngularStats)
+    .name;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}]},{},[1])(1)

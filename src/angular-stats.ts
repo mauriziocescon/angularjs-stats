@@ -155,4 +155,5 @@ class AngularStats {
 }
 
 export const angularStats = angular.module("angular-stats", [])
-	.service("AngularStats", AngularStats);
+	.service("AngularStats", AngularStats)
+	.name;
