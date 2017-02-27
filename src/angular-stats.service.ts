@@ -1,6 +1,6 @@
 import * as angular from "angular";
 
-class AngularStats {
+export default class AngularStats {
 	private rootScope: ng.IRootScopeService;
 	private document: ng.IDocumentService;
 	private window: ng.IWindowService;
@@ -153,7 +153,3 @@ class AngularStats {
 		return new Date();
 	}
 }
-
-export const angularStats = angular.module("angular-stats", [])
-	.service("AngularStats", AngularStats)
-	.name;

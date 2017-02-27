@@ -13,10 +13,7 @@ var vinylBuffer = require("vinyl-buffer");
 var vinylSourceStream = require("vinyl-source-stream");
 
 var paths = {
-    browserifyEntries: ["src/angular-stats.ts"],
-    dependencies: [
-        "angular"
-    ]
+    browserifyEntries: ["src/index.ts"]
 };
 
 

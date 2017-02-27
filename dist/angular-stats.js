@@ -125,10 +125,19 @@ var AngularStats = (function () {
     return AngularStats;
 }());
 AngularStats.$inject = ["$rootScope", "$document", "$window", "$timeout"];
+exports.default = AngularStats;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],2:[function(require,module,exports){
+(function (global){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var angular = (typeof window !== "undefined" ? window['angular'] : typeof global !== "undefined" ? global['angular'] : null);
+var angular_stats_service_1 = require("./angular-stats.service");
 exports.angularStats = angular.module("angular-stats", [])
-    .service("AngularStats", AngularStats)
+    .service("AngularStats", angular_stats_service_1.default)
     .name;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[1])(1)
+},{"./angular-stats.service":1}]},{},[2])(2)
 });
