@@ -3,6 +3,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var angular = (typeof window !== "undefined" ? window['angular'] : typeof global !== "undefined" ? global['angular'] : null);
+// import AngularStats from "./angular-stats.service";
 var AngularStats = (function () {
     function AngularStats($rootScope, $document, $window, $timeout) {
         this.digestInfo = { duration: "0" };
@@ -126,18 +127,10 @@ var AngularStats = (function () {
 }());
 AngularStats.$inject = ["$rootScope", "$document", "$window", "$timeout"];
 exports.default = AngularStats;
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],2:[function(require,module,exports){
-(function (global){
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var angular = (typeof window !== "undefined" ? window['angular'] : typeof global !== "undefined" ? global['angular'] : null);
-var angular_stats_service_1 = require("./angular-stats.service");
 exports.angularStats = angular.module("angular-stats", [])
-    .service("AngularStats", angular_stats_service_1.default)
+    .service("AngularStats", AngularStats)
     .name;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./angular-stats.service":1}]},{},[2])(2)
+},{}]},{},[1])(1)
 });
