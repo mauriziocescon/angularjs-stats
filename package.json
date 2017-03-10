@@ -6,7 +6,7 @@
   "homepage": "http://www.mauriziocescon.com",
   "license": "MIT",
   "private": false,
-  "main": "./dist/angular-stats.js",
+  "main": "./index.js",
   "typings": "./src/angular-stats.d.ts",
   "scripts": {
     "build": "gulp build"
