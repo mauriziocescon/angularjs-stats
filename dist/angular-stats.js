@@ -126,7 +126,6 @@ var AngularStats = (function () {
     return AngularStats;
 }());
 AngularStats.$inject = ["$rootScope", "$document", "$window", "$timeout"];
-exports.default = AngularStats;
 exports.angularStats = angular.module("angular-stats", [])
     .service("AngularStats", AngularStats)
     .name;
