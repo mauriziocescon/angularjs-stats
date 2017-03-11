@@ -2,7 +2,11 @@
   "name": "angular-stats",
   "version": "1.0.5",
   "description": "Little utility to show stats about your angular app",
-  "main": "index.js",
+  "author": "Maurizio Cescon <maurizio.cescon@gmail.com> (http://www.mauriziocescon.com)",
+  "homepage": "http://www.mauriziocescon.com",
+  "license": "MIT",
+  "private": false,
+  "main": "./dist/angular-stats.js",
   "typings": "./src/angular-stats.d.ts",
   "scripts": {
     "build": "gulp build"
@@ -16,10 +20,11 @@
     "stats",
     "watcher",
     "analysis",
+    "digest",
+    "measure",
     "maurizio",
     "cescon"
   ],
-  "author": "Maurizio Cescon <maurizio.cescon@gmail.com> (http://www.mauriziocescon.com)",
   "licenses": [
     {
       "type": "MIT",
@@ -27,17 +32,26 @@
     }
   ],
   "dependencies": {
-    "angular": "1.6.2",
+    "angular": "1.6.3",
     "jquery": "3.1.1"
   },
   "devDependencies": {
-    "@types/angular": "1.6.6",
+    "@types/angular": "1.6.9",
+    "browserify": "14.1.0",
+    "browserify-shim": "3.8.13",
     "del": "2.2.2",
     "gulp": "3.9.1",
-    "gulp-concat": "2.6.1",
-    "gulp-typescript": "3.1.5",
-    "gulp-uglify": "2.0.1",
+    "gulp-uglify": "2.1.0",
     "run-sequence": "1.2.2",
-    "typescript": "2.0.6"
-  }
+    "tsify": "3.0.1",
+    "typescript": "2.2.1",
+    "vinyl-buffer": "1.0.0",
+    "vinyl-source-stream": "1.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": "./config/shim.js"
 }

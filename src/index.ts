@@ -1,3 +1,6 @@
+import * as angular from "angular";
+// import AngularStats from "./angular-stats.service";
+
 class AngularStats {
 	private rootScope: ng.IRootScopeService;
 	private document: ng.IDocumentService;
@@ -152,5 +155,6 @@ class AngularStats {
 	}
 }
 
-angular.module("angular-stats", [])
-	.service("AngularStats", AngularStats);
+export const angularStats = angular.module("angular-stats", [])
+	.service("AngularStats", AngularStats)
+	.name;
