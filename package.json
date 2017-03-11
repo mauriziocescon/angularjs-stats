@@ -32,16 +32,16 @@
     }
   ],
   "dependencies": {
-    "angular": "1.6.2",
+    "angular": "1.6.3",
     "jquery": "3.1.1"
   },
   "devDependencies": {
-    "@types/angular": "1.6.7",
+    "@types/angular": "1.6.9",
     "browserify": "14.1.0",
     "browserify-shim": "3.8.13",
     "del": "2.2.2",
     "gulp": "3.9.1",
-    "gulp-uglify": "2.0.1",
+    "gulp-uglify": "2.1.0",
     "run-sequence": "1.2.2",
     "tsify": "3.0.1",
     "typescript": "2.2.1",
