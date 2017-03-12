@@ -34,6 +34,7 @@ Icon?
 # nodejs npm modules
 /node_modules
 npm-debug.log
+gulpfile.js
 
 # node-cluster
 /pids
