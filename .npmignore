@@ -50,6 +50,7 @@ npm-debug.log
 
 # dev folders
 gulpfile.js
+tsconfig.json
 .editorconfig
 demo
 src
