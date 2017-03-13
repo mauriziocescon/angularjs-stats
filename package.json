@@ -1,14 +1,19 @@
 {
   "name": "angular-stats",
-  "version": "1.0.6",
+  "version": "1.0.14",
   "description": "Little utility to show stats about your angular app",
   "author": "Maurizio Cescon <maurizio.cescon@gmail.com> (http://www.mauriziocescon.com)",
   "homepage": "http://www.mauriziocescon.com",
   "license": "MIT",
   "private": false,
+  "engines": {
+    "node": ">= 6.10.0"
+  },
   "main": "./dist/angular-stats.js",
   "typings": "./src/angular-stats.d.ts",
   "scripts": {
+    "prepublish": "gulp build",
+
     "build": "gulp build"
   },
   "repository": {
@@ -33,10 +38,12 @@
   ],
   "dependencies": {
     "angular": "1.6.3",
-    "jquery": "3.1.1"
+    "jquery": "3.1.1",
+    "lodash": "*"
   },
   "devDependencies": {
     "@types/angular": "1.6.9",
+    "@types/lodash": "*",
     "browserify": "14.1.0",
     "browserify-shim": "3.8.13",
     "del": "2.2.2",
