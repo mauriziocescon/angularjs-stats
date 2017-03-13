@@ -3,17 +3,16 @@
 /* Build scripts            */
 /*--------------------------*/
 
-var browserify = require("browserify");
 var del = require("del");
 var gulp = require("gulp");
+var gulpConcat = require("gulp-concat");
+var gulpTypescript = require("gulp-typescript");
 var gulpUglify = require("gulp-uglify");
 var runSequence = require("run-sequence");
-var tsify = require("tsify");
-var vinylBuffer = require("vinyl-buffer");
-var vinylSourceStream = require("vinyl-source-stream");
 
 var paths = {
-    browserifyEntries: ["src/index.ts"]
+    tsEntries: ["src/angular-stats.service.ts", "src/index.ts"],
+    js: ["dist/index.js", "dist/angular-stats.service.js"]
 };
 
 
@@ -26,40 +25,24 @@ gulp.task("empty-dist", function () {
 });
 
 gulp.task("compile-ts", function () {
-    return browserify({
-        basedir: ".",
-        cache: {},
-        entries: paths.browserifyEntries,
-        packageCache: {},
-        standalone: "angular-stats"
-    })
-        .plugin(tsify)
-        .bundle()
-        .pipe(vinylSourceStream("angular-stats.js"))
-        .pipe(vinylBuffer())
-        .pipe(gulp.dest("dist/"));
+    var tsProject = gulpTypescript.createProject("tsconfig.json", {outFile: "angular-stats.js"});
+    return gulp.src(paths.tsEntries)
+        .pipe(tsProject())
+        .pipe(gulp.dest("./dist/"));
 });
 
-gulp.task("compile-ts-mim", function () {
-    return browserify({
-        basedir: ".",
-        cache: {},
-        entries: paths.browserifyEntries,
-        packageCache: {},
-        standalone: "angular-stats"
-    })
-        .plugin(tsify)
-        .bundle()
-        .pipe(vinylSourceStream("angular-stats.mim.js"))
-        .pipe(vinylBuffer())
+gulp.task("compile-ts-min", function () {
+    var tsProject = gulpTypescript.createProject("tsconfig.json", {outFile: "angular-stats.min.js"});
+    return gulp.src(paths.tsEntries)
+        .pipe(tsProject())
         .pipe(gulpUglify({mangle: false}))
-        .pipe(gulp.dest("dist/"));
+        .pipe(gulp.dest("./dist/"));
 });
 
 gulp.task("build", function () {
     runSequence(
         "empty-dist",
         "compile-ts",
-        "compile-ts-mim"
+        "compile-ts-min"
     );
 });
