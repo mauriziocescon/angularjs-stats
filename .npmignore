@@ -48,10 +48,12 @@ npm-debug.log
 # IDEA
 .idea
 
-# dev folders
-gulpfile.js
-tsconfig.json
-.editorconfig
+# Ignored files
 demo
 src
-config
+.editorconfig
+.gitignore
+*.ts
+!*.d.ts
+tsconfig.json
+webpack.config.js

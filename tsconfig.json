@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": true,
+    "declaration": false,
     "diagnostics": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -14,8 +14,8 @@
     "noImplicitThis": false,
     "pretty": true,
     "removeComments": false,
-    "target": "ES5",
-    "types": ["angular"]
+    "sourceMap": false,
+    "target": "ES5"
   },
   "exclude": [
     "node_modules"

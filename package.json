@@ -9,12 +9,11 @@
   "engines": {
     "node": ">= 6.10.0"
   },
-  "main": "index.js",
+  "main": "dist/angular-stats.js",
   "typings": "angular-stats.d.ts",
   "scripts": {
-    "prepublish": "gulp build",
-
-    "build": "gulp build"
+    "prepublish": "webpack",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -42,12 +41,12 @@
   },
   "devDependencies": {
     "@types/angular": "1.6.9",
-    "del": "2.2.2",
-    "gulp": "3.9.1",
-    "gulp-concat": "2.6.1",
-    "gulp-typescript": "3.1.5",
-    "gulp-uglify": "2.1.0",
-    "run-sequence": "1.2.2",
-    "typescript": "2.2.1"
+    "awesome-typescript-loader": "3.1.2",
+    "babel": "6.23.0",
+    "babel-core": "6.24.0",
+    "babel-loader": "6.4.0",
+    "source-map-loader": "0.2.0",
+    "typescript": "2.2.1",
+    "webpack": "2.2.1"
   }
 }

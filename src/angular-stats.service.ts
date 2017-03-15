@@ -1,4 +1,6 @@
-class AngularStats {
+import * as angular from "angular";
+
+export class AngularStats {
 	private rootScope: ng.IRootScopeService;
 	private document: ng.IDocumentService;
 	private window: ng.IWindowService;
