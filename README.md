@@ -52,7 +52,7 @@ export class AppController {
 
 	constructor(AngularStats: AngularStats) {
 	    this.angularStats = AngularStats;
-		this.name = "AppComponent";
+	    this.name = "AppComponent";
 	}
 	
 	get analysis(): string {
