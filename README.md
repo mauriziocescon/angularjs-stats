@@ -57,7 +57,7 @@ export class AppController {
 	
 	get analysis(): string {
 		return "<pre>" + this.angularStats.analyzeWebApp() + "</pre>";
-    }
+	}
 
 	$onInit() {
 	    /**
