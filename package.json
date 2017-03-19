@@ -37,14 +37,14 @@
   ],
   "dependencies": {
     "angular": "1.6.3",
-    "jquery": "3.1.1"
+    "jquery": "3.2.0"
   },
   "devDependencies": {
     "@types/angular": "1.6.9",
     "awesome-typescript-loader": "3.1.2",
     "babel": "6.23.0",
     "babel-core": "6.24.0",
-    "babel-loader": "6.4.0",
+    "babel-loader": "6.4.1",
     "source-map-loader": "0.2.0",
     "typescript": "2.2.1",
     "webpack": "2.2.1"
