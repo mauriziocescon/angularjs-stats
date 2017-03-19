@@ -1,7 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "declaration": false,
+    "declaration": true,
+    "declarationDir": "interfaces",
     "diagnostics": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

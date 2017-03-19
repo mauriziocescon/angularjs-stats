@@ -1,6 +1,6 @@
 {
   "name": "angular-stats",
-  "version": "1.0.19",
+  "version": "1.0.23",
   "description": "Little utility to show stats about your angular app",
   "author": "Maurizio Cescon <maurizio.cescon@gmail.com> (http://www.mauriziocescon.com)",
   "homepage": "http://www.mauriziocescon.com",
@@ -10,7 +10,7 @@
     "node": ">= 6.10.0"
   },
   "main": "dist/angular-stats.js",
-  "typings": "angular-stats.d.ts",
+  "typings": "interfaces/index.d.ts",
   "scripts": {
     "prepublish": "webpack",
     "build": "webpack"

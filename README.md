@@ -12,12 +12,11 @@ For every angular component where you define the property ``name``, you get also
 
 5. Number of watchers per component.
 
-The property ``name`` can be defined on your controller class or binded to the scope. In ``src`` there is also the ``Typescript`` interface.
-You can either ``require`` it using CommonJS syntax (you need a module resolver) or load it using a script. 
+The property ``name`` can be defined on your controller class or binded to the scope. The module has been developed usign ``Typescript`` and is exported as ``UMD``, so you can use a module resolver (Webpack / Browserify) in order to ``import`` it or add it globally. 
 
 ## Requirements
 
-1. angular 1.5+ (right now the utility is not working with angular 2.x)
+1. angular 1.5+ (the utility is not working with angular 2.x)
 2. jQuery 2.x+
 
 ## Installation
@@ -31,20 +30,27 @@ You can either ``require`` it using CommonJS syntax (you need a module resolver)
 ## Usage
 
 ```typescript
+// --- app.module.ts ---
 // Typescript + ES2015 modules
 
-export const app = angular.module("myApp", ["angular-stats"])
+import {angularStats} from "angular-stats";
+
+export const app = angular.module("myApp", [angularStats])
     .component("app", AppComponent)
     .name;
 
+
+// --- app.component.ts ---
 // ...define your AppComponent using an AppController like this: 
 
+import {AngularStats} from "angular-stats";
+
 export class AppController {
-	private angularStats: ng.mc.IAngularStats;
+	private angularStats: AngularStats;
 	
 	static $inject = ["AngularStats"];
 
-	constructor(AngularStats: ng.mc.IAngularStats) {
+	constructor(AngularStats: AngularStats) {
 	    this.angularStats = AngularStats;
 		this.name = "AppComponent";
 	}
@@ -87,3 +93,5 @@ angular.module("myApp", ["angular-stats"])
         }
 }]);
 ``` 
+
+If you bundle ``app`` and ``vendors`` in two different bundles, require the module using ``angular-stats``

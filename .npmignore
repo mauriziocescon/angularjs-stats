@@ -54,6 +54,6 @@ src
 .editorconfig
 .gitignore
 *.ts
-!*.d.ts
+!interfaces/**/*
 tsconfig.json
 webpack.config.js
