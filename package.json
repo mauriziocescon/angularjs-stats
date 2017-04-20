@@ -4,10 +4,10 @@
   "description": "Little utility to show stats about your angular app",
   "author": "Maurizio Cescon <maurizio.cescon@gmail.com> (http://www.mauriziocescon.com)",
   "homepage": "http://www.mauriziocescon.com",
-  "license": "MIT",
   "private": false,
   "engines": {
-    "node": ">= 6.10.0"
+    "node": ">=6.10.2",
+    "npm": ">=3.10.10"
   },
   "main": "dist/angular-stats.js",
   "typings": "interfaces/index.d.ts",
