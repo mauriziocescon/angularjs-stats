@@ -46,11 +46,13 @@ export const app = angular.module("myApp", [angularStats])
 import {AngularStats} from "angular-stats";
 
 export class AppController {
+	private document: ng.IDocumentService;
 	private angularStats: AngularStats;
 	
 	static $inject = ["AngularStats"];
 
-	constructor(AngularStats: AngularStats) {
+	constructor($document: ng.IDocumentService, AngularStats: AngularStats) {
+		this.document = $document;
 	    this.angularStats = AngularStats;
 	    this.name = "AppComponent";
 	}
@@ -66,7 +68,7 @@ export class AppController {
 	     * to change it, set a different starting
 	     * point with a valid selector
         */
-	    this.angularStats.setStartingElement("app");
+	    this.angularStats.setStartingElement(this.document[0].querySelector("app"));
 	}
 }
 ``` 
@@ -85,12 +87,12 @@ angular.module("myApp", ["angular-stats"])
              * to change it, set a different starting
              * point with a valid selector
             */
-            AngularStats.setStartingElement("[ng-app]");
-        }
+            AngularStats.setStartingElement($document[0].querySelector("div[ng-app]"));
+        };
         
         $scope.getStats = function() {
             return "<pre>" + AngularStats.analyzeWebApp() + "</pre>";
-        }
+        };
 }]);
 ``` 
 

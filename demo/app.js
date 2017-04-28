@@ -8,9 +8,9 @@ angular.module("demo", ["angular-stats"])
             $scope.values.push(value);
         };
     }])
-    .controller("StatCtrl", ["$scope", "AngularStats", function ($scope, AngularStats) {
+    .controller("StatCtrl", ["$scope", "$document", "AngularStats", function ($scope, $document, AngularStats) {
         $scope.name = "StatCtrl";
-        AngularStats.setStartingElement("[ng-app]");
+        AngularStats.setStartingElement($document[0].querySelector("div[ng-app]"));
 
         $scope.getStats = function() {
             return AngularStats.analyzeWebApp();

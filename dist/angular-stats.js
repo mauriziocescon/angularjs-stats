@@ -92,7 +92,7 @@ var AngularStats = function () {
         this.document = $document;
         this.window = $window;
         this.timeout = $timeout;
-        this.startingElement = "app";
+        this.startingElement = this.document[0].querySelector("app");
     }
     AngularStats.prototype.setStartingElement = function (element) {
         this.startingElement = element;

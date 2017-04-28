@@ -27,7 +27,7 @@ export class AngularStats {
 		this.window = $window;
 		this.timeout = $timeout;
 
-		this.startingElement = "app";
+		this.startingElement = this.document[0].querySelector("app");
 	}
 
 	public setStartingElement(element: any): void {
