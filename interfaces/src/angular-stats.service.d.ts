@@ -1,4 +1,5 @@
 /// <reference types="angular" />
+/// <reference types="angular-mocks" />
 export declare class AngularStats {
     private rootScope;
     private document;
