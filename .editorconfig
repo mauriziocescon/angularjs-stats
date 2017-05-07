@@ -1,27 +1,39 @@
+# EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs
+# http://editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file and trimming white spaces
 [*]
 charset=utf-8
 end_of_line=lf
-insert_final_newline=false
+insert_final_newline=true
 indent_style=space
 indent_size=4
+trim_trailing_whitespace=true
 
-[{.eslintrc,.babelrc,.stylelintrc,*.json,*.jsb3,*.jsb2,*.bowerrc}]
+# 4 space indentation
+[{.eslintrc,.babelrc,.stylelintrc,*.json,*.bowerrc,travis.yml}]
 indent_style=space
 indent_size=2
 
+# 4 space indentation
 [{*.model,*.ats,*.ts}]
-indent_style=tab
-tab_width=4
+indent_style=space
+indent_size=4
 
+# 4 space indentation
 [*.less]
 indent_style=space
 indent_size=2
 
+# 4 space indentation
 [*.scss]
 indent_style=space
 indent_size=2
 
+# 4 space indentation
 [*.coffee]
 indent_style=space
 indent_size=2
-
