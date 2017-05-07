@@ -84,7 +84,7 @@ module.exports = function () {
                     test: /\.(ts|tsx)?$/,
                     enforce: "pre",
                     use: [
-                        {loader: "tslint-loader", options: {emitErrors: true, failOnHint: false, typeCheck: false, formatter: "stylish"}}
+                        {loader: "tslint-loader", options: {emitErrors: true, failOnHint: true, typeCheck: true, formatter: "stylish"}}
                     ]
                 },
 
