@@ -1,3 +1,4 @@
+// tslint:disable:no-string-literal
 import * as angular from "angular";
 
 export class AngularStats {
@@ -10,10 +11,10 @@ export class AngularStats {
 
     private scopesList: any[];
     private watchersList: any[];
-    private componentsInfo: Object;
+    private componentsInfo: Object; // tslint:disable-line:ban-types
 
     private domElementsCount: number;
-    private nodeNameList: Object;
+    private nodeNameList: Object; // tslint:disable-line:ban-types
 
     private startingElement: any;
     private digestInfo = {duration: "0"};
@@ -42,7 +43,7 @@ export class AngularStats {
         this.domElementsCount = 0;
         this.nodeNameList = {};
 
-        let element = this.document.find(this.startingElement);
+        const element = this.document.find(this.startingElement);
         if (!element || element.length === 0) {
             throw Error(this.startingElement + " is not a valid selector");
         }
@@ -66,13 +67,15 @@ export class AngularStats {
 
         mex += "\nCOMPONENTS\n";
         mex += "----------------------\n";
-        for (let name in this.componentsInfo) {
+        // tslint:disable-next-line:forin
+        for (const name in this.componentsInfo) {
             mex += "- " + name.toUpperCase() + "\n" + "s: " + this.componentsInfo[name].scopesCount + ", w: " + this.componentsInfo[name].watchers.length + "\n";
         }
 
         mex += "\n\nHTMLElement\n";
         mex += "----------------------\n";
-        for (let nodeName in this.nodeNameList) {
+        // tslint:disable-next-line:forin
+        for (const nodeName in this.nodeNameList) {
             mex += nodeName + ": " + this.nodeNameList[nodeName] + "\n";
         }
 
@@ -87,16 +90,20 @@ export class AngularStats {
             const name = currentScope["$ctrl"] ? currentScope["$ctrl"]["name"] : (currentScope["name"] ? currentScope["name"] : "Unknown");
             if (this.componentsInfo[name] === undefined) {
                 this.componentsInfo[name] = {
-                    name: name, scopesCount: 1, watchers: [],
+                    name, scopesCount: 1, watchers: [],
                 };
             } else {
                 this.componentsInfo[name].scopesCount++;
             }
 
             angular.forEach(currentScope["$$watchers"], (watcher) => {
-                if (this.watchersList.indexOf(watcher) === -1) this.watchersList.push(watcher);
+                if (this.watchersList.indexOf(watcher) === -1) {
+                    this.watchersList.push(watcher);
+                }
 
-                if (this.componentsInfo[name].watchers.indexOf(watcher) === -1) this.componentsInfo[name].watchers.push(watcher);
+                if (this.componentsInfo[name].watchers.indexOf(watcher) === -1) {
+                    this.componentsInfo[name].watchers.push(watcher);
+                }
             });
 
             if (currentScope["$$childHead"]) {
@@ -120,7 +127,9 @@ export class AngularStats {
     private detectFromElement(element: any): void {
 
         this.domElementsCount++;
-        if (element.data().hasOwnProperty("$scope")) this.analizeScope(element.data()["$scope"]);
+        if (element.data().hasOwnProperty("$scope")) {
+            this.analizeScope(element.data()["$scope"]);
+        }
 
         angular.forEach(element.children(), (childElement: HTMLElement) => {
             if (this.nodeNameList[childElement.nodeName] === undefined) {
@@ -134,16 +143,16 @@ export class AngularStats {
 
     private calculateDigestDuration(): void {
         let duration = 0;
-        let scopePrototype = Object.getPrototypeOf(this.rootScope);
-        let angularDigest = scopePrototype.$digest;
+        const scopePrototype = Object.getPrototypeOf(this.rootScope);
+        const angularDigest = scopePrototype.$digest;
 
         scopePrototype.$digest = (...args) => {
-            let start = this.getTime();
+            const start = this.getTime();
             angularDigest.apply(this.rootScope, args);
             duration = this.getTime() - start;
             this.digestInfo.duration = duration.toFixed(2);
         };
-    };
+    }
 
     private getTime(): number {
         return performance ? performance.now() : this.getDate().getTime();

@@ -1,6 +1,7 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
+    "allowJs": false,
+    "allowUnreachableCode": true,
     "declaration": true,
     "declarationDir": "interfaces",
     "diagnostics": false,
@@ -15,10 +16,15 @@
     "noImplicitThis": false,
     "pretty": true,
     "removeComments": false,
-    "sourceMap": false,
-    "target": "ES5"
+    "sourceMap": true,
+    "target": "ES2017",
+    "types": ["jasmine"]
   },
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }
