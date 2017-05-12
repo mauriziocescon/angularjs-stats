@@ -7,7 +7,7 @@ module.exports = function (env) {
     return webpackMerge(commonConfig(env), {
         entry: ["./index.ts", "./src/angular-stats.service.spec.ts"],
 
-        devtool: "inline-source-map",
+        devtool: "cheap-module-eval-source-map",
 
         plugins: [
 

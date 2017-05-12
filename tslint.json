@@ -1,0 +1,10 @@
+{
+  "lintOptions": {
+    "typeCheck": true
+  },
+  "extends": "tslint:recommended",
+  "rules": {
+    "max-line-length": [true, 220],
+    "one-line": [false, "check-else"]
+  }
+}

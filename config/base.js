@@ -74,17 +74,18 @@ module.exports = function () {
                     test: /\.(ts|tsx)?$/,
                     exclude: /node_modules/,
                     use: [
-                        {loader: "awesome-typescript-loader?useBabel=true"},
-                        {loader: "preprocess-loader", options: {}}
+                        {loader: "awesome-typescript-loader?useBabel=true"}
                     ]
                 },
 
-                // ts-lint
+                // preprocess + ts-lint
                 {
                     test: /\.(ts|tsx)?$/,
+                    exclude: /node_modules/,
                     enforce: "pre",
                     use: [
-                        {loader: "tslint-loader", options: {emitErrors: true, failOnHint: true, typeCheck: true, formatter: "stylish"}}
+                        {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}}//,
+                        // {loader: "preprocess-loader", options: {}}
                     ]
                 },
 

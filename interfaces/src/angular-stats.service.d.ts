@@ -1,6 +1,7 @@
 /// <reference types="angular" />
 /// <reference types="angular-mocks" />
 export declare class AngularStats {
+    static $inject: string[];
     private rootScope;
     private document;
     private window;
@@ -12,7 +13,6 @@ export declare class AngularStats {
     private nodeNameList;
     private startingElement;
     private digestInfo;
-    static $inject: string[];
     constructor($rootScope: ng.IRootScopeService, $document: ng.IDocumentService, $window: ng.IWindowService, $timeout: ng.ITimeoutService);
     setStartingElement(element: any): void;
     analyzeWebApp(): string;

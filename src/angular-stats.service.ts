@@ -1,13 +1,15 @@
 import * as angular from "angular";
 
 export class AngularStats {
+    public static $inject = ["$rootScope", "$document", "$window", "$timeout"];
+
     private rootScope: ng.IRootScopeService;
     private document: ng.IDocumentService;
     private window: ng.IWindowService;
     private timeout: ng.ITimeoutService;
 
-    private scopesList: Array<any>;
-    private watchersList: Array<any>;
+    private scopesList: any[];
+    private watchersList: any[];
     private componentsInfo: Object;
 
     private domElementsCount: number;
@@ -15,8 +17,6 @@ export class AngularStats {
 
     private startingElement: any;
     private digestInfo = {duration: "0"};
-
-    static $inject = ["$rootScope", "$document", "$window", "$timeout"];
 
     constructor($rootScope: ng.IRootScopeService,
                 $document: ng.IDocumentService,
@@ -43,7 +43,7 @@ export class AngularStats {
         this.nodeNameList = {};
 
         let element = this.document.find(this.startingElement);
-        if (!element || element.length == 0) {
+        if (!element || element.length === 0) {
             throw Error(this.startingElement + " is not a valid selector");
         }
         else {
@@ -81,22 +81,22 @@ export class AngularStats {
 
     private analizeScope(currentScope: ng.IScope): void {
 
-        if (this.scopesList.indexOf(currentScope) == -1) {
+        if (this.scopesList.indexOf(currentScope) === -1) {
             this.scopesList.push(currentScope);
 
             const name = currentScope["$ctrl"] ? currentScope["$ctrl"]["name"] : (currentScope["name"] ? currentScope["name"] : "Unknown");
-            if (this.componentsInfo[name] == undefined) {
+            if (this.componentsInfo[name] === undefined) {
                 this.componentsInfo[name] = {
-                    name: name, scopesCount: 1, watchers: []
+                    name: name, scopesCount: 1, watchers: [],
                 };
             } else {
                 this.componentsInfo[name].scopesCount++;
             }
 
             angular.forEach(currentScope["$$watchers"], (watcher) => {
-                if (this.watchersList.indexOf(watcher) == -1) this.watchersList.push(watcher);
+                if (this.watchersList.indexOf(watcher) === -1) this.watchersList.push(watcher);
 
-                if (this.componentsInfo[name].watchers.indexOf(watcher) == -1) this.componentsInfo[name].watchers.push(watcher);
+                if (this.componentsInfo[name].watchers.indexOf(watcher) === -1) this.componentsInfo[name].watchers.push(watcher);
             });
 
             if (currentScope["$$childHead"]) {
@@ -123,7 +123,7 @@ export class AngularStats {
         if (element.data().hasOwnProperty("$scope")) this.analizeScope(element.data()["$scope"]);
 
         angular.forEach(element.children(), (childElement: HTMLElement) => {
-            if (this.nodeNameList[childElement.nodeName] == undefined) {
+            if (this.nodeNameList[childElement.nodeName] === undefined) {
                 this.nodeNameList[childElement.nodeName] = 1;
             } else {
                 this.nodeNameList[childElement.nodeName]++;
