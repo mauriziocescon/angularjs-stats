@@ -18,7 +18,9 @@
     "removeComments": false,
     "sourceMap": true,
     "target": "ES2017",
-    "types": ["jasmine"]
+    "types": [
+      "jasmine"
+    ]
   },
   "exclude": [
     "node_modules"
