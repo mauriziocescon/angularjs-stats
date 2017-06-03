@@ -14,11 +14,9 @@
   "scripts": {
     "postinstall": "webpack --progress --profile --colors --env.name=prod",
     "prepublish": "webpack --progress --profile --colors --env.name=prod",
-
     "build": "webpack --progress --colors --env.name=prod",
     "pretest": "webpack --progress --colors --env.name=test",
     "test": "karma start karma.conf.js"
-
   },
   "repository": {
     "type": "git",
