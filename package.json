@@ -1,6 +1,6 @@
 {
   "name": "angular-stats",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "Little utility to show stats about your angular app",
   "author": "Maurizio Cescon <maurizio.cescon@gmail.com> (http://www.mauriziocescon.com)",
   "homepage": "http://www.mauriziocescon.com",
@@ -79,7 +79,7 @@
     "stylelint-webpack-plugin": "0.8.0",
     "tslint": "5.4.3",
     "tslint-loader": "3.5.3",
-    "typescript": "2.3.4",
+    "typescript": "2.4.1",
     "webpack": "3.0.0",
     "webpack-dev-server": "2.5.0",
     "webpack-merge": "4.1.0"
