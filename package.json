@@ -1,6 +1,6 @@
 {
   "name": "angular-stats",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "Little utility to show stats about your angular app",
   "author": "Maurizio Cescon <maurizio.cescon@gmail.com> (http://www.mauriziocescon.com)",
   "homepage": "http://www.mauriziocescon.com",
@@ -39,15 +39,15 @@
     }
   ],
   "dependencies": {
-    "angular": "1.6.4",
-    "angular-mocks": "1.6.4",
+    "angular": "1.6.5",
+    "angular-mocks": "1.6.5",
     "jquery": "3.2.1"
   },
   "devDependencies": {
     "@types/angular": "1.6.25",
     "@types/angular-mocks": "1.5.10",
     "@types/jasmine": "2.5.53",
-    "@types/node": "8.0.6",
+    "@types/node": "8.0.7",
     "awesome-typescript-loader": "3.2.1",
     "babel": "6.23.0",
     "babel-core": "6.25.0",
