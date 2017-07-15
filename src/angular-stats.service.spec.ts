@@ -10,16 +10,16 @@ describe("ContactListController", () => {
     // Set up the module
     beforeEach(angular.mock.module("angular-stats"));
 
-    beforeEach(inject((_$rootScope_, _$httpBackend_, _$q_) => {
+    beforeEach(inject(($rootScope, $httpBackend, $q) => {
 
         // Update ui
-        rootScope = _$rootScope_;
+        rootScope = $rootScope;
 
         // Set up the mock http service responses
-        httpBackend = _$httpBackend_;
+        httpBackend = $httpBackend;
 
         // Manage fake promises
-        q = _$q_;
+        q = $q;
     }));
 
     afterEach(() => {
