@@ -1,8 +1,6 @@
 const webpack = require("webpack");
 const path = require("path");
 const CleanPlugin = require("clean-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const {CheckerPlugin} = require("awesome-typescript-loader");
 
 module.exports = function () {
@@ -37,42 +35,7 @@ module.exports = function () {
 
             rules: [
 
-                // creates style nodes from JS strings
-                // translates CSS into CommonJS
-                // compiles Sass to CSS
-                {
-                    test: /\.scss$/,
-                    use: [
-                        {loader: "style-loader"},
-                        {loader: "css-loader"},
-                        {loader: "sass-loader"}
-                    ]
-                },
-
-                // template loaders
-                {
-                    test: /\.html?$/,
-                    exclude: /index.html$/,
-                    use: [
-                        {
-                            loader: "html-loader",
-                            options: {
-                                exportAsEs6Default: true,
-                                minimize: true
-                            }
-                        }
-                    ]
-                },
-
-                // images loader
-                {
-                    test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-                    use: [
-                        {loader: "file-loader?name=assets/imgs/[name].[hash].[ext]"}
-                    ]
-                },
-
-                // all files with a ".ts" or ".tsx" extension will be handled by "ts-loader"
+                // all files with a ".ts" or ".tsx" extension will be handled by awesome-typescript-loader
                 {
                     test: /\.(ts|tsx)?$/,
                     exclude: /node_modules/,
@@ -87,8 +50,7 @@ module.exports = function () {
                     exclude: /node_modules/,
                     enforce: "pre",
                     use: [
-                        {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}}//,
-                        // {loader: "preprocess-loader", options: {}}
+                        {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}}
                     ]
                 },
 
