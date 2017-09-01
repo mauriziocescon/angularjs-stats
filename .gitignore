@@ -32,8 +32,11 @@ Icon?
 .Trashes
 
 # nodejs npm modules
-/node_modules
+node_modules
 npm-debug.log
+
+# bower
+/bower_components
 
 # node-cluster
 /pids
@@ -47,3 +50,10 @@ npm-debug.log
 
 # IDEA
 .idea
+
+# Webpack - awesome-typescript-loader
+.awcache
+
+# DIST
+dist
+e2e-tests/tmp
