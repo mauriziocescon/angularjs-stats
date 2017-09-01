@@ -12,9 +12,9 @@
   "main": "dist/angular-stats.js",
   "typings": "interfaces/index.d.ts",
   "scripts": {
-    "prepublish": "webpack --progress --profile --colors --env.name=prod",
-    "build": "webpack --progress --colors --env.name=prod",
-    "pretest": "webpack --progress --colors --env.name=test",
+    "prepublish": "webpack --profile --profile --colors --env.name=prod",
+    "build": "webpack --profile --colors --env.name=prod",
+    "pretest": "webpack --profile --colors --env.name=test",
     "test": "karma start karma.conf.js"
   },
   "repository": {
