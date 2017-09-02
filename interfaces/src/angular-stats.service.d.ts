@@ -6,6 +6,7 @@ export declare class AngularStats {
     private document;
     private window;
     private timeout;
+    private logger;
     private scopesList;
     private watchersList;
     private componentsInfo;
@@ -13,7 +14,7 @@ export declare class AngularStats {
     private nodeNameList;
     private startingElement;
     private digestInfo;
-    constructor($rootScope: ng.IRootScopeService, $document: ng.IDocumentService, $window: ng.IWindowService, $timeout: ng.ITimeoutService);
+    constructor($rootScope: ng.IRootScopeService, $document: ng.IDocumentService, $window: ng.IWindowService, $timeout: ng.ITimeoutService, $log: ng.ILogService);
     setStartingElement(element: any): void;
     analyzeWebApp(): string;
     private composeMessage();
