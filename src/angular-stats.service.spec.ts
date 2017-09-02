@@ -10,7 +10,9 @@ describe("ContactListController", () => {
     // Set up the module
     beforeEach(angular.mock.module("angular-stats"));
 
-    beforeEach(inject(($rootScope, $httpBackend, $q) => {
+    beforeEach(inject(($rootScope: ng.IRootScopeService,
+                       $httpBackend: ng.IHttpBackendService,
+                       $q: ng.IQService) => {
 
         // Update ui
         rootScope = $rootScope;
