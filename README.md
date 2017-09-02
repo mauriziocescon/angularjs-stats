@@ -16,8 +16,9 @@ The property ``name`` can be defined on your controller class or binded to the s
 
 ## Requirements
 
-1. angular 1.5+ (the utility is not working with angular 2.x)
-2. jQuery 2.x+
+1. AngularJs 1.5+ (it doesn't require jQuery)
+
+2. The utility is not working with Angular >= 2.x
 
 ## Installation
 
@@ -33,7 +34,7 @@ The property ``name`` can be defined on your controller class or binded to the s
 // --- app.module.ts ---
 // Typescript + ES2015 modules
 
-import {angularStats} from "angular-stats";
+import { angularStats } from "angular-stats";
 
 export const app = angular.module("myApp", [angularStats])
     .component("app", AppComponent)
@@ -43,7 +44,7 @@ export const app = angular.module("myApp", [angularStats])
 // --- app.component.ts ---
 // ...define your AppComponent using an AppController like this: 
 
-import {AngularStats} from "angular-stats";
+import { AngularStats } from "angular-stats";
 
 export class AppController {
 	private document: ng.IDocumentService;
@@ -51,7 +52,8 @@ export class AppController {
 	
 	static $inject = ["AngularStats"];
 
-	constructor($document: ng.IDocumentService, AngularStats: AngularStats) {
+	constructor($document: ng.IDocumentService, 
+	            AngularStats: AngularStats) {
 		this.document = $document;
 	    this.angularStats = AngularStats;
 	    this.name = "AppComponent";
@@ -66,9 +68,9 @@ export class AppController {
 	    * By default, AngularStats will search for
 	     * an element like <app></app>. If you want 
 	     * to change it, set a different starting
-	     * point with a valid selector
+	     * element (element: JQLite)
         */
-	    this.angularStats.setStartingElement(this.document[0].querySelector("app"));
+	    this.angularStats.setStartingElement(this.document.find("my-element"));
 	}
 }
 ``` 
@@ -85,9 +87,9 @@ angular.module("myApp", ["angular-stats"])
             * By default, AngularStats will search for
              * an element like <app></app>. If you want 
              * to change it, set a different starting
-             * point with a valid selector
+             * element (element: JQLite)
             */
-            AngularStats.setStartingElement($document[0].querySelector("div[ng-app]"));
+            AngularStats.setStartingElement($document.find("my-element"));
         };
         
         $scope.getStats = function() {

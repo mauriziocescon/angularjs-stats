@@ -1,7 +1,12 @@
 // tslint:disable:no-string-literal
 import * as angular from "angular";
 
-export class AngularStats {
+export interface IAngularStats {
+    setStartingElement(element: JQLite): void;
+    analyzeWebApp(): string;
+}
+
+export class AngularStats implements IAngularStats {
     public static $inject = ["$rootScope", "$document", "$window", "$timeout", "$log"];
 
     private rootScope: ng.IRootScopeService;
@@ -34,7 +39,7 @@ export class AngularStats {
         this.startingElement = this.document.find("app");
     }
 
-    public setStartingElement(element: any): void {
+    public setStartingElement(element: JQLite): void {
         this.startingElement = element;
     }
 

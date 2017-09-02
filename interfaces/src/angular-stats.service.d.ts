@@ -1,6 +1,10 @@
 /// <reference types="angular" />
 /// <reference types="angular-mocks" />
-export declare class AngularStats {
+export interface IAngularStats {
+    setStartingElement(element: JQLite): void;
+    analyzeWebApp(): string;
+}
+export declare class AngularStats implements IAngularStats {
     static $inject: string[];
     private rootScope;
     private document;
@@ -15,7 +19,7 @@ export declare class AngularStats {
     private startingElement;
     private digestInfo;
     constructor($rootScope: ng.IRootScopeService, $document: ng.IDocumentService, $window: ng.IWindowService, $timeout: ng.ITimeoutService, $log: ng.ILogService);
-    setStartingElement(element: any): void;
+    setStartingElement(element: JQLite): void;
     analyzeWebApp(): string;
     private composeMessage();
     private analizeScope(currentScope);

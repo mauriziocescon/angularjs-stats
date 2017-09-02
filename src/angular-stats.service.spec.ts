@@ -29,7 +29,7 @@ describe("ContactListController", () => {
         httpBackend.verifyNoOutstandingRequest();
     });
 
-    it("controller.contacts is not undefined after $onInit", () => {
-        expect(1).not.toBeUndefined("controller.contacts is undefined...");
+    it("test", () => {
+        expect(1).not.toBeUndefined("is not defined...");
     });
 });
