@@ -148,7 +148,7 @@ export class AngularStats {
                 } else {
                     this.nodeNameList[childElement.nodeName]++;
                 }
-                this.detectFromElement(this.document.find(childElement));
+                this.detectFromElement(angular.element(childElement));
             });
         }
         catch (e) {
