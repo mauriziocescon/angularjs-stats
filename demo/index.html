@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Demo</title>
-    <!--<script src="../node_modules/jquery/dist/jquery.js"></script>-->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../dist/angular-stats.js"></script>
     <script src="app.js"></script>
@@ -18,7 +18,7 @@
 
         <div class="main-ctrl" ng-controller="MainCtrl">
             <button class="btn" ng-click="clickButton()">Run a digest cycle</button>
-            <div ng-repeat="value in values">{{ value }}</div>
+            <h2 ng-repeat="value in values">{{ value }}</h2>
         </div>
 
     </div>
