@@ -71,7 +71,7 @@ export class AngularStats {
             mex += "----------------------\n";
             // tslint:disable-next-line:forin
             for (const name in this.componentsInfo) {
-                mex += "- " + name.toUpperCase() + "\n" + "s: " + this.componentsInfo[name].scopesCount + ", w: " + this.componentsInfo[name].watchers.length + "\n";
+                mex += "- " + name + "\n" + "s: " + this.componentsInfo[name].scopesCount + ", w: " + this.componentsInfo[name].watchers.length + "\n";
             }
 
             mex += "\n\nHTMLElement\n";
