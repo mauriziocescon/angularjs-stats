@@ -6,7 +6,7 @@
   "homepage": "http://www.mauriziocescon.com",
   "private": false,
   "engines": {
-    "node": ">=6.11.2",
+    "node": ">=6.11.3",
     "npm": ">=3.10.10"
   },
   "main": "dist/angular-stats.js",
@@ -45,8 +45,8 @@
   "devDependencies": {
     "@types/angular": "1.6.32",
     "@types/angular-mocks": "1.5.11",
-    "@types/jasmine": "2.5.54",
-    "@types/node": "8.0.26",
+    "@types/jasmine": "2.6.0",
+    "@types/node": "8.0.28",
     "awesome-typescript-loader": "3.2.3",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
@@ -79,8 +79,8 @@
     "tslint": "5.7.0",
     "tslint-loader": "3.5.3",
     "typescript": "2.5.2",
-    "webpack": "3.5.5",
-    "webpack-dev-server": "2.7.1",
+    "webpack": "3.6.0",
+    "webpack-dev-server": "2.8.2",
     "webpack-merge": "4.1.0"
   }
 }
