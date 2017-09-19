@@ -43,7 +43,7 @@ module.exports = () => {
                 // all files with ".js .ts .tsx" extensions will be handled by ts-loader
                 {
                     test: /\.(js|ts|tsx)?$/,
-                    exclude: [/node_modules/, /config/, /demo/],
+                    exclude: [/node_modules/, /config/],
                     use: [
                         {loader: "cache-loader"},
                         // there should be 1 cpu for the fork-ts-checker-webpack-plugin
@@ -56,7 +56,7 @@ module.exports = () => {
                 // preprocess
                 {
                     test: /\.(js|ts|tsx)?$/,
-                    exclude: [/node_modules/, /config/, /demo/],
+                    exclude: [/node_modules/, /config/],
                     enforce: "pre",
                     use: [
                         {loader: "preprocess-loader", options: {}},
