@@ -1,10 +1,12 @@
+// tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require("webpack");
 const path = require("path");
 const CleanPlugin = require("clean-webpack-plugin");
-const {CheckerPlugin} = require("awesome-typescript-loader");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
-module.exports = function () {
+module.exports = () => {
     return {
+
         entry: "./index.ts",
 
         // Enable sourcemaps for debugging webpack's output.
@@ -12,7 +14,7 @@ module.exports = function () {
 
         resolve: {
             // Add ".ts" and ".tsx" as a resolvable extension.
-            extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".scss", ".html", ".json"]
+            extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".scss", ".html", ".json"],
         },
 
         plugins: [
@@ -25,33 +27,40 @@ module.exports = function () {
                 root: path.resolve(__dirname, "../"),
                 verbose: true,
                 dry: false,
-                exclude: []
+                exclude: [],
             }),
 
-            new CheckerPlugin()
+            new ForkTsCheckerWebpackPlugin({
+                tslint: true,
+                watch: ["./src/"], // optional but improves performance (less stat calls)
+            }),
         ],
 
         module: {
 
             rules: [
 
-                // all files with a ".ts" or ".tsx" extension will be handled by awesome-typescript-loader
+                // all files with ".js .ts .tsx" extensions will be handled by ts-loader
                 {
-                    test: /\.(ts|tsx)?$/,
-                    exclude: /node_modules/,
+                    test: /\.(js|ts|tsx)?$/,
+                    exclude: [/node_modules/, /config/, /demo/],
                     use: [
-                        {loader: "awesome-typescript-loader", options: {useBabel: true, useCache: true}}
-                    ]
+                        {loader: "cache-loader"},
+                        // there should be 1 cpu for the fork-ts-checker-webpack-plugin
+                        {loader: "thread-loader", options: {workers: require("os").cpus().length - 1}},
+                        {loader: "babel-loader", options: {cacheDirectory: true}},
+                        {loader: "ts-loader", options: {happyPackMode: true}},
+                    ],
                 },
 
-                // preprocess + ts-lint
+                // preprocess
                 {
-                    test: /\.(ts|tsx)?$/,
-                    exclude: /node_modules/,
+                    test: /\.(js|ts|tsx)?$/,
+                    exclude: [/node_modules/, /config/, /demo/],
                     enforce: "pre",
                     use: [
-                        {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}}
-                    ]
+                        {loader: "preprocess-loader", options: {}},
+                    ],
                 },
 
                 // All output ".js" files will have any sourcemaps re-processed by "source-map-loader".
@@ -59,17 +68,17 @@ module.exports = function () {
                     test: /\.js$/,
                     enforce: "pre",
                     use: [
-                        {loader: "source-map-loader"}
-                    ]
-                }
-            ]
+                        {loader: "source-map-loader"},
+                    ],
+                },
+            ],
         },
 
         output: {
             path: path.resolve(__dirname, "../dist"),
             filename: "angular-stats.js",
             library: "AngularStats",
-            libraryTarget: "umd"
-        }
+            libraryTarget: "umd",
+        },
     };
 };

@@ -1,10 +1,12 @@
+// tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require("webpack");
 const path = require("path");
 const webpackMerge = require("webpack-merge");
 const commonConfig = require("./base.js");
 
-module.exports = function (env) {
+module.exports = (env) => {
     return webpackMerge(commonConfig(env), {
+
         entry: ["./index.ts", "./src/angular-stats.service.spec.ts"],
 
         devtool: "cheap-module-eval-source-map",
@@ -13,9 +15,9 @@ module.exports = function (env) {
 
             new webpack.DefinePlugin({
                 "process.env": {
-                    "ENV": JSON.stringify("test")
-                }
-            })
+                    "ENV": JSON.stringify("test"),
+                },
+            }),
         ],
 
         // When importing a module whose path matches one of the following, just
@@ -24,7 +26,7 @@ module.exports = function (env) {
         // dependencies, which allows browsers to cache those libraries between builds.
         externals: {
             "angular": "angular",
-            "jquery": "$"
-        }
+            "jquery": "$",
+        },
     });
 };

@@ -1,27 +1,27 @@
+// tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require("webpack");
 const webpackMerge = require("webpack-merge");
 const commonConfig = require("./base.js");
 
-module.exports = function (env) {
+module.exports = (env) => {
     return webpackMerge(commonConfig(env), {
 
         devtool: "source-map",
 
         plugins: [
 
-            new webpack.optimize.UglifyJsPlugin({
-                mangle: {
-                    keep_fnames: true
-                },
-                sourceMap: true
-            }),
-
             new webpack.DefinePlugin({
                 "process.env": {
-                    "ENV": JSON.stringify("production")
-                }
-            })
+                    "ENV": JSON.stringify("production"),
+                },
+            }),
 
+            new webpack.optimize.UglifyJsPlugin({
+                mangle: {
+                    keep_fnames: true,
+                },
+                sourceMap: true,
+            }),
         ],
 
         // When importing a module whose path matches one of the following, just
@@ -30,7 +30,7 @@ module.exports = function (env) {
         // dependencies, which allows browsers to cache those libraries between builds.
         externals: {
             "angular": "angular",
-            "jquery": "$"
-        }
+            "jquery": "$",
+        },
     });
 };
