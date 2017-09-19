@@ -51,8 +51,9 @@ npm-debug.log
 # IDEA
 .idea
 
-# Webpack - awesome-typescript-loader
+# Webpack caches
 .awcache
+.cache-loader
 
 # DIST
 dist
