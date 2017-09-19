@@ -42,7 +42,7 @@ module.exports = () => {
                     test: /\.(js|ts|tsx)?$/,
                     exclude: [/node_modules/, /config/],
                     use: [
-                        {loader: "awesome-typescript-loader", options: {useBabel: true, useCache: true}}
+                        {loader: "awesome-typescript-loader", options: {useBabel: true, useCache: true}},
                     ],
                 },
 
