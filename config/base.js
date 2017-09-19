@@ -2,7 +2,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const CleanPlugin = require("clean-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const {CheckerPlugin} = require("awesome-typescript-loader");
 
 module.exports = () => {
     return {
@@ -30,11 +30,7 @@ module.exports = () => {
                 exclude: [],
             }),
 
-            new ForkTsCheckerWebpackPlugin({
-                checkSyntacticErrors: true,
-                tslint: true,
-                watch: ["./src/"], // optional but improves performance (less stat calls)
-            }),
+            new CheckerPlugin(),
         ],
 
         module: {
@@ -46,11 +42,7 @@ module.exports = () => {
                     test: /\.(js|ts|tsx)?$/,
                     exclude: [/node_modules/, /config/],
                     use: [
-                        {loader: "cache-loader"},
-                        // there should be 1 cpu for the fork-ts-checker-webpack-plugin
-                        {loader: "thread-loader", options: {workers: require("os").cpus().length - 1}},
-                        {loader: "babel-loader", options: {cacheDirectory: true}},
-                        {loader: "ts-loader", options: {happyPackMode: true}},
+                        {loader: "awesome-typescript-loader", options: {useBabel: true, useCache: true}}
                     ],
                 },
 
@@ -60,6 +52,7 @@ module.exports = () => {
                     exclude: [/node_modules/, /config/],
                     enforce: "pre",
                     use: [
+                        {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}},
                         {loader: "preprocess-loader", options: {}},
                     ],
                 },
