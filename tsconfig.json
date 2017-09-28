@@ -12,7 +12,7 @@
     "pretty": true,
     "removeComments": false,
     "sourceMap": true,
-    "strict": false,
+    "strict": true,
     "target": "ES2017",
     "types": [
       "jasmine"

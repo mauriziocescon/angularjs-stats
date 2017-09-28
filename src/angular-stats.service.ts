@@ -167,7 +167,7 @@ export class AngularStats implements IAngularStats {
             const scopePrototype = Object.getPrototypeOf(this.rootScope);
             const angularDigest = scopePrototype.$digest;
 
-            scopePrototype.$digest = (...args) => {
+            scopePrototype.$digest = (...args: any[]) => {
                 const start = this.getTime();
                 angularDigest.apply(this.rootScope, args);
                 duration = this.getTime() - start;
