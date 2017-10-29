@@ -49,11 +49,17 @@ npm-debug.log
 .idea
 
 # Ignored files
+.awcache
 demo
 src
+config
+.babelrc
 .editorconfig
 .gitignore
+.travis.yml
 *.ts
 !interfaces/**/*
+karma.conf.js
 tsconfig.json
+tslint.json
 webpack.config.js
