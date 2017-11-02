@@ -1,2 +1,2 @@
 export { angularStats } from "./src/angular-stats.module";
-export { AngularStats, IAngularStats } from "./src/angular-stats.service";
+export { AngularStats } from "./src/angular-stats.service";

@@ -47,7 +47,7 @@
     "@types/angular-mocks": "1.5.11",
     "@types/jasmine": "2.6.2",
     "@types/node": "8.0.47",
-    "awesome-typescript-loader": "3.2.3",
+    "awesome-typescript-loader": "3.3.0",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "clean-webpack-plugin": "0.1.17",
@@ -65,8 +65,8 @@
     "source-map-loader": "0.2.3",
     "tslint": "5.8.0",
     "tslint-loader": "3.5.3",
-    "typescript": "2.5.3",
+    "typescript": "2.6.1",
     "webpack": "3.8.1",
-    "webpack-merge": "4.1.0"
+    "webpack-merge": "4.1.1"
   }
 }
