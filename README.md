@@ -44,16 +44,16 @@ export const app = angular.module("myApp", [angularStats])
 // --- app.component.ts ---
 // ...define your AppComponent using an AppController like this: 
 
-import { AngularStats } from "angular-stats";
+import { IAngularStats } from "angular-stats";
 
 export class AppController {
 	private document: ng.IDocumentService;
-	private angularStats: AngularStats;
+	private angularStats: IAngularStats;
 	
 	static $inject = ["AngularStats"];
 
 	constructor($document: ng.IDocumentService, 
-	            AngularStats: AngularStats) {
+	            AngularStats: IAngularStats) {
 		this.document = $document;
 	    this.angularStats = AngularStats;
 	    this.name = "AppComponent";
