@@ -7,7 +7,7 @@ const {CheckerPlugin} = require("awesome-typescript-loader");
 module.exports = () => {
     return {
 
-        entry: "./index.ts",
+        entry: "./src/index.ts",
 
         // Enable sourcemaps for debugging webpack's output.
         devtool: "source-map",

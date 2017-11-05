@@ -7,7 +7,7 @@ const commonConfig = require("./base.js");
 module.exports = (env) => {
     return webpackMerge(commonConfig(env), {
 
-        entry: ["./index.ts", "./src/angular-stats.service.spec.ts"],
+        entry: ["./src/index.ts", "./src/angular-stats/angular-stats.service.spec.ts"],
 
         devtool: "cheap-module-eval-source-map",
 
