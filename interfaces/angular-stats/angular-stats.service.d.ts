@@ -1,6 +1,5 @@
 /// <reference types="angular" />
 /// <reference types="angular-mocks" />
-
 export interface IAngularStats {
     setStartingElement(element: JQLite): void;
     analyzeWebApp(): string;
