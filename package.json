@@ -22,14 +22,14 @@
     "url": "https://github.com/mauriziocescon/angular-stats"
   },
   "keywords": [
-    "angular",
-    "stats",
-    "watcher",
     "analysis",
+    "angularjs",
+    "cescon",
     "digest",
-    "measure",
     "maurizio",
-    "cescon"
+    "measure",
+    "stats",
+    "watcher"
   ],
   "licenses": [
     {
