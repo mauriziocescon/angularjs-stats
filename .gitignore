@@ -58,3 +58,4 @@ npm-debug.log
 # DIST
 dist
 e2e-tests/tmp
+mock-server/db.json
