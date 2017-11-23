@@ -6,8 +6,8 @@
   "homepage": "http://www.mauriziocescon.com",
   "private": false,
   "engines": {
-    "node": ">=8.9.1",
-    "npm": ">=5.5.1"
+    "node": "=8.9.1",
+    "npm": "=5.5.1"
   },
   "main": "./dist/angular-stats.js",
   "types": "./interfaces/index.d.ts",
