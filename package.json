@@ -38,22 +38,22 @@
     }
   ],
   "dependencies": {
-    "angular": "1.6.7",
-    "angular-mocks": "1.6.7",
+    "angular": "1.6.8",
+    "angular-mocks": "1.6.8",
     "jquery": "3.2.1"
   },
   "devDependencies": {
     "@types/angular": "1.6.39",
     "@types/angular-mocks": "1.5.11",
     "@types/jasmine": "2.8.2",
-    "@types/node": "8.5.1",
+    "@types/node": "8.5.2",
     "awesome-typescript-loader": "3.4.1",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "clean-webpack-plugin": "0.1.17",
     "jasmine-core": "2.8.0",
     "jasmine-node": "1.14.5",
-    "karma": "1.7.1",
+    "karma": "2.0.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.1.0",
     "karma-ie-launcher": "1.0.0",
