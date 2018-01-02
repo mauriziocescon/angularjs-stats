@@ -43,9 +43,9 @@
     "jquery": "3.2.1"
   },
   "devDependencies": {
-    "@types/angular": "1.6.39",
+    "@types/angular": "1.6.40",
     "@types/angular-mocks": "1.5.11",
-    "@types/jasmine": "2.8.2",
+    "@types/jasmine": "2.8.3",
     "@types/node": "8.5.2",
     "awesome-typescript-loader": "3.4.1",
     "babel-core": "6.26.0",

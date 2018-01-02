@@ -3,17 +3,12 @@ import * as angular from "angular";
 
 export interface IAngularStats {
     setStartingElement(element: JQLite): void;
+
     analyzeWebApp(): string;
 }
 
 export class AngularStats implements IAngularStats {
     public static $inject = ["$rootScope", "$document", "$window", "$timeout", "$log"];
-
-    private rootScope: ng.IRootScopeService;
-    private document: ng.IDocumentService;
-    private window: ng.IWindowService;
-    private timeout: ng.ITimeoutService;
-    private logger: ng.ILogService;
 
     private scopesList: ng.IScope[];
     private watchersList: any[];
@@ -25,17 +20,11 @@ export class AngularStats implements IAngularStats {
     private startingElement: JQLite;
     private digestInfo = {duration: "0"};
 
-    constructor($rootScope: ng.IRootScopeService,
-                $document: ng.IDocumentService,
-                $window: ng.IWindowService,
-                $timeout: ng.ITimeoutService,
-                $log: ng.ILogService) {
-        this.rootScope = $rootScope;
-        this.document = $document;
-        this.window = $window;
-        this.timeout = $timeout;
-        this.logger = $log;
-
+    constructor(private rootScope: ng.IRootScopeService,
+                private document: ng.IDocumentService,
+                private window: ng.IWindowService,
+                private timeout: ng.ITimeoutService,
+                private logger: ng.ILogService) {
         this.startingElement = this.document.find("app");
     }
 
