@@ -46,7 +46,7 @@
     "@types/angular": "1.6.40",
     "@types/angular-mocks": "1.5.11",
     "@types/jasmine": "2.8.3",
-    "@types/node": "8.5.2",
+    "@types/node": "8.5.7",
     "awesome-typescript-loader": "3.4.1",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
