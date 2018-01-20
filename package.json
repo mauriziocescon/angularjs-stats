@@ -40,18 +40,18 @@
   "dependencies": {
     "angular": "1.6.8",
     "angular-mocks": "1.6.8",
-    "jquery": "3.2.1"
+    "jquery": "3.3.1"
   },
   "devDependencies": {
     "@types/angular": "1.6.40",
     "@types/angular-mocks": "1.5.11",
-    "@types/jasmine": "2.8.3",
-    "@types/node": "8.5.7",
+    "@types/jasmine": "2.8.4",
+    "@types/node": "9.3.0",
     "awesome-typescript-loader": "3.4.1",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "clean-webpack-plugin": "0.1.17",
-    "jasmine-core": "2.8.0",
+    "jasmine-core": "2.9.1",
     "jasmine-node": "1.14.5",
     "karma": "2.0.0",
     "karma-chrome-launcher": "2.2.0",
@@ -63,7 +63,7 @@
     "karma-spec-reporter": "0.0.32",
     "preprocess-loader": "0.2.2",
     "source-map-loader": "0.2.3",
-    "tslint": "5.8.0",
+    "tslint": "5.9.1",
     "tslint-loader": "3.5.3",
     "typescript": "2.6.2",
     "webpack": "3.10.0",
