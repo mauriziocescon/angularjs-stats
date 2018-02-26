@@ -10,12 +10,12 @@ export interface IAngularStats {
 export class AngularStats implements IAngularStats {
     public static $inject = ["$rootScope", "$document", "$window", "$timeout", "$log"];
 
-    private scopesList: ng.IScope[];
-    private watchersList: any[];
-    private componentsInfo: {[key: string]: any};
+    private scopesList!: ng.IScope[];
+    private watchersList!: any[];
+    private componentsInfo!: {[key: string]: any};
 
-    private domElementsCount: number;
-    private nodeNameList: {[key: string]: any};
+    private domElementsCount!: number;
+    private nodeNameList!: {[key: string]: any};
 
     private startingElement: JQLite;
     private digestInfo = {duration: "0"};

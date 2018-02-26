@@ -43,15 +43,15 @@
     "jquery": "3.3.1"
   },
   "devDependencies": {
-    "@types/angular": "1.6.42",
+    "@types/angular": "1.6.43",
     "@types/angular-mocks": "1.5.11",
     "@types/jasmine": "2.8.6",
-    "@types/node": "9.4.5",
-    "awesome-typescript-loader": "3.4.1",
+    "@types/node": "9.4.6",
+    "awesome-typescript-loader": "3.5.0",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "clean-webpack-plugin": "0.1.18",
-    "jasmine-core": "2.9.1",
+    "jasmine-core": "3.0.0",
     "jasmine-node": "1.14.5",
     "karma": "2.0.0",
     "karma-chrome-launcher": "2.2.0",
@@ -65,8 +65,9 @@
     "source-map-loader": "0.2.3",
     "tslint": "5.9.1",
     "tslint-loader": "3.5.3",
-    "typescript": "2.6.2",
+    "typescript": "2.7.2",
     "webpack": "3.11.0",
-    "webpack-merge": "4.1.1"
+    "webpack-cli": "2.0.9",
+    "webpack-merge": "4.1.2"
   }
 }
