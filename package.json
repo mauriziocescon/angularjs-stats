@@ -51,7 +51,7 @@
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "clean-webpack-plugin": "0.1.18",
-    "jasmine-core": "3.0.0",
+    "jasmine-core": "3.1.0",
     "jasmine-node": "1.14.5",
     "karma": "2.0.0",
     "karma-chrome-launcher": "2.2.0",
