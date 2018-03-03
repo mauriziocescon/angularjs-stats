@@ -9,7 +9,7 @@ module.exports = (env) => {
 
         entry: ["./src/index.ts", "./src/angular-stats/angular-stats.service.spec.ts"],
 
-        devtool: "cheap-module-eval-source-map",
+        mode: "development",
 
         plugins: [
 

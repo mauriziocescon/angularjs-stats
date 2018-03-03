@@ -6,7 +6,7 @@ const commonConfig = require("./base.js");
 module.exports = (env) => {
     return webpackMerge(commonConfig(env), {
 
-        devtool: "source-map",
+        mode: "production",
 
         plugins: [
 
