@@ -1,6 +1,6 @@
 {
   "name": "angular-stats",
-  "version": "1.1.13",
+  "version": "1.2.0",
   "description": "Little utility to show stats about your angularjs app",
   "author": "Maurizio Cescon <maurizio.cescon@gmail.com> (http://www.mauriziocescon.com)",
   "homepage": "http://www.mauriziocescon.com",
@@ -37,22 +37,21 @@
       "url": "https://github.com/brentertz/scapegoat/blob/master/LICENSE-MIT"
     }
   ],
-  "dependencies": {
-    "angular": "1.6.9",
-    "angular-mocks": "1.6.9",
-    "jquery": "3.3.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/angular": "1.6.43",
     "@types/angular-mocks": "1.5.11",
     "@types/jasmine": "2.8.6",
     "@types/node": "9.4.7",
+    "angular": "1.6.9",
+    "angular-mocks": "1.6.9",
     "awesome-typescript-loader": "4.0.1",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "clean-webpack-plugin": "0.1.19",
     "jasmine-core": "3.1.0",
     "jasmine-node": "1.14.5",
+    "jquery": "3.3.1",
     "karma": "2.0.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.1.0",
