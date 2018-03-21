@@ -1,61 +1,47 @@
-# Node.js with Express and Stlyus
-public/css/*.css
-public/css/main/*.css
-public/css/admin/*.css
-/.monitor
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Eclipse
-/.project
-/.settings
-/.buildpath
-
-# Sublime
-*.sublime-project
-*.sublime-workspace
-
-# Windows
-Thumbs.db
-
-# Ignore this in Clock Harness projects because it is created by the build system.
-/Config/vhost.conf
-
-# Vim
-.*.sw[a-z]
-*.un~i
-tags
-
-# OsX
-.DS_Store
-Icon?
-._*
-.Spotlight-V100
-.Trashes
-
-# nodejs npm modules
-node_modules
-npm-debug.log
-
-# bower
-/bower_components
-
-# node-cluster
-/pids
-*.sock
-
-# ZSH Cake plugin cache
-/.cake_task_cache
-
-# SVN
-.svn
-
-# IDEA
-.idea
-
-# Webpack caches
+# compiled output
+dist
+dist-server
+tmp
+out-tsc
 .awcache
 .cache-loader
+/mock-server/db/db.json
 
-# DIST
-dist
-e2e-tests/tmp
-mock-server/db.json
+# dependencies
+node_modules
+
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
