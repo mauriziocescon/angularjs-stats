@@ -21,10 +21,10 @@ export declare class AngularStats implements IAngularStats {
     constructor(rootScope: ng.IRootScopeService, document: ng.IDocumentService, window: ng.IWindowService, timeout: ng.ITimeoutService, logger: ng.ILogService);
     setStartingElement(element: JQLite): void;
     analyzeWebApp(): string;
-    private composeMessage();
-    private analizeScope(currentScope);
-    private detectFromElement(element);
-    private calculateDigestDuration();
-    private getTime();
-    private getDate();
+    private composeMessage;
+    private analizeScope;
+    private detectFromElement;
+    private calculateDigestDuration;
+    private getTime;
+    private getDate;
 }
