@@ -13,9 +13,10 @@
   "types": "./interfaces/index.d.ts",
   "scripts": {
     "prepublish": "webpack --profile --colors --env.name=prod",
-    "build": "webpack --profile --colors --env.name=prod",
-    "pretest": "webpack --profile --colors --env.name=test",
-    "test": "karma start karma.conf.js"
+    "build": "webpack --progress --profile --json --colors --env.name=prod",
+    "pretest": "webpack --progress --profile --colors --env.name=test",
+    "test": "karma start karma.conf.js",
+    "bundle-analyzer": "webpack-bundle-analyzer ./dist/stats.json"
   },
   "repository": {
     "type": "git",
@@ -39,19 +40,19 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@types/angular": "1.6.47",
-    "@types/angular-mocks": "1.6.0",
+    "@types/angular": "1.6.48",
+    "@types/angular-mocks": "1.6.1",
     "@types/jasmine": "2.8.8",
-    "@types/node": "10.3.4",
+    "@types/node": "10.5.2",
     "angular": "1.7.2",
     "angular-mocks": "1.7.2",
-    "awesome-typescript-loader": "5.1.1",
+    "awesome-typescript-loader": "5.2.0",
     "babel-core": "6.26.3",
     "babel-preset-env": "1.7.0",
     "clean-webpack-plugin": "0.1.19",
     "jasmine-core": "3.1.0",
-    "jasmine-node": "1.14.6",
-    "karma": "2.0.3",
+    "jasmine-node": "1.15.0",
+    "karma": "2.0.4",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.1.0",
     "karma-ie-launcher": "1.0.0",
@@ -64,7 +65,8 @@
     "tslint": "5.10.0",
     "tslint-loader": "3.6.0",
     "typescript": "2.9.2",
-    "webpack": "4.12.0",
+    "webpack": "4.15.1",
+    "webpack-bundle-analyzer": "2.13.1",
     "webpack-cli": "3.0.8",
     "webpack-merge": "4.1.3"
   }
