@@ -14,7 +14,7 @@
     "removeComments": false,
     "sourceMap": true,
     "strict": true,
-    "target": "ESNext",
+    "target": "ES2017",
     "types": [
       "jasmine"
     ]
