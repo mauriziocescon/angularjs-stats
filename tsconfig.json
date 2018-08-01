@@ -8,7 +8,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "pretty": true,
     "removeComments": false,
