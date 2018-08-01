@@ -13,7 +13,7 @@
   "types": "./interfaces/index.d.ts",
   "scripts": {
     "prepublish": "webpack --profile --colors --env.name=prod",
-    "build": "webpack --progress --profile --json --colors --env.name=prod",
+    "build": "webpack --progress --profile --colors --env.name=prod",
     "pretest": "webpack --progress --profile --colors --env.name=test",
     "test": "karma start karma.conf.js",
     "bundle-analyzer": "webpack-bundle-analyzer ./dist/stats.json"

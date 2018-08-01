@@ -21,7 +21,6 @@ module.exports = (env) => {
       new BundleAnalyzerPlugin({
         analyzerMode: 'disabled',
         generateStatsFile: true,
-        logLevel: 'silent',
       }),
     ],
 
