@@ -43,7 +43,7 @@
     "@types/angular": "1.6.49",
     "@types/angular-mocks": "1.7.0",
     "@types/jasmine": "2.8.8",
-    "@types/node": "10.5.5",
+    "@types/node": "10.5.6",
     "angular": "1.7.2",
     "angular-mocks": "1.7.2",
     "awesome-typescript-loader": "5.2.0",
