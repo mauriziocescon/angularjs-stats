@@ -1,7 +1,7 @@
 // tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require('webpack');
 const path = require('path');
-const CleanPlugin = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const {CheckerPlugin} = require('awesome-typescript-loader');
 
 module.exports = () => {
@@ -20,12 +20,7 @@ module.exports = () => {
       new webpack.optimize.ModuleConcatenationPlugin(),
 
       // clean dist folder
-      new CleanPlugin(['dist', 'build'], {
-        root: path.resolve(__dirname, '../'),
-        verbose: true,
-        dry: false,
-        exclude: [],
-      }),
+      new CleanWebpackPlugin(),
 
       new CheckerPlugin(),
     ],
