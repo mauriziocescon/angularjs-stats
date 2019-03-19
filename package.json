@@ -6,7 +6,7 @@
   "homepage": "http://www.mauriziocescon.com",
   "private": false,
   "engines": {
-    "node": "=10.15.2",
+    "node": "=10.15.3",
     "npm": "=6.4.1"
   },
   "main": "./dist/angular-stats.js",
