@@ -1,7 +1,7 @@
 Angular Stats
 =========
 
-This is a lightweight utility that gives you some statistics about you angularjs application. In particular, you get the 
+This is a lightweight utility that gives you some statistics about your angularjs application. In particular, you get the 
 
 1. number of scopes,
 2. number of watchers,
