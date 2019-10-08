@@ -3,7 +3,7 @@ language: node_js
 # test on different versions of node.js
 node_js:
   - 10.16.3
-  - 12.9.1
+  - 12.11.1
 
 # addition of chrome for testing
 addons:
