@@ -4,6 +4,9 @@
   },
   "extends": "tslint:recommended",
   "rules": {
+    "deprecation": {
+      "severity": "warn"
+    },
     "max-line-length": [
       true,
       220
