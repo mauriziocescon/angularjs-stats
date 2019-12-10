@@ -5,7 +5,7 @@
   "extends": "tslint:recommended",
   "rules": {
     "deprecation": {
-      "severity": "warn"
+      "severity": "warning"
     },
     "max-line-length": [
       true,
