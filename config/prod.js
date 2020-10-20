@@ -1,11 +1,11 @@
 // tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
+const {merge} = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const commonConfig = require('./base.js');
 
 module.exports = (env) => {
-  return webpackMerge(commonConfig(env), {
+  return merge(commonConfig(env), {
 
     mode: 'production',
 

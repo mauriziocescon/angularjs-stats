@@ -1,11 +1,11 @@
 // tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require('webpack');
 const path = require('path');
-const webpackMerge = require('webpack-merge');
+const {merge} = require('webpack-merge');
 const commonConfig = require('./base.js');
 
 module.exports = (env) => {
-  return webpackMerge(commonConfig(env), {
+  return merge(commonConfig(env), {
 
     entry: ['./src/index.ts', './src/angular-stats/angular-stats.service.spec.ts'],
 
