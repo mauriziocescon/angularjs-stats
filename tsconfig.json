@@ -16,7 +16,8 @@
     "strict": true,
     "target": "ES2017",
     "types": [
-      "jasmine"
+      "jasmine",
+      "node"
     ]
   },
   "exclude": [
