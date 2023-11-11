@@ -33,7 +33,7 @@ module.exports = () => {
           test: /\.(js|ts|tsx)?$/,
           exclude: [/node_modules/],
           use: [
-            {loader: 'babel-loader', options: {cacheDirectory: true, presets: ['@babel/env']}},
+            {loader: 'babel-loader', options: {cacheDirectory: true, babelrc: true}},
             {loader: 'ts-loader'},
           ],
         },

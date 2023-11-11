@@ -22,8 +22,6 @@ module.exports = (config) => {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-firefox-launcher'),
-      require('karma-ie-launcher'),
       require('karma-spec-reporter'),
     ],
 
