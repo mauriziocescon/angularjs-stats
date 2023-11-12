@@ -1,11 +1,10 @@
 import * as angular from 'angular';
-import { AngularStats } from './angular-stats.service';
 
 // Addition of angular-mocks and jasmine references is done on the gulpfile
 describe('ContactListController', () => {
-  let rootScope: ng.IRootScopeService;
+  let rootScope: ng.IRootScopeService; // eslint-disable-line @typescript-eslint/no-unused-vars
   let httpBackend: ng.IHttpBackendService;
-  let q: ng.IQService;
+  let q: ng.IQService; // eslint-disable-line @typescript-eslint/no-unused-vars
 
   // Set up the module
   beforeEach(angular.mock.module('angular-stats'));
