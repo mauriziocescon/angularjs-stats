@@ -1,7 +1,7 @@
-// tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require('webpack');
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -24,6 +24,11 @@ module.exports = () => {
 
       // clean dist folder
       new CleanWebpackPlugin(),
+
+      new ESLintPlugin({
+        extensions: ['ts', 'tsx'],
+        emitError: true,
+      }),
     ],
 
     module: {
@@ -37,16 +42,6 @@ module.exports = () => {
           use: [
             {loader: 'babel-loader', options: {cacheDirectory: true, babelrc: true}},
             {loader: 'ts-loader'},
-          ],
-        },
-
-        // preprocess
-        {
-          test: /\.(js|ts|tsx)?$/,
-          exclude: [/node_modules/],
-          enforce: 'pre',
-          use: [
-            {loader: 'tslint-loader', options: {emitErrors: false, formatter: 'stylish'}},
           ],
         },
 

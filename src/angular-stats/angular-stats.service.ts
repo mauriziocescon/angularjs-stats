@@ -1,4 +1,3 @@
-// tslint:disable:no-string-literal
 import * as angular from 'angular';
 
 export interface IAngularStats {
@@ -11,11 +10,11 @@ export class AngularStats implements IAngularStats {
   public static $inject = ['$rootScope', '$document', '$window', '$timeout', '$log'];
 
   private scopesList!: ng.IScope[];
-  private watchersList!: any[];
-  private componentsInfo!: { [key: string]: any };
+  private watchersList!: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
+  private componentsInfo!: { [key: string]: any }; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   private domElementsCount!: number;
-  private nodeNameList!: { [key: string]: any };
+  private nodeNameList!: { [key: string]: any }; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   private startingElement: JQLite;
   private digestInfo = { duration: '0' };
@@ -63,14 +62,12 @@ export class AngularStats implements IAngularStats {
 
       mex += '\nCOMPONENTS\n';
       mex += '----------------------\n';
-      // tslint:disable-next-line:forin
       for (const name in this.componentsInfo) {
         mex += '- ' + name + '\n' + 's: ' + this.componentsInfo[name].scopesCount + ', w: ' + this.componentsInfo[name].watchers.length + '\n';
       }
 
       mex += '\n\nHTMLElement\n';
       mex += '----------------------\n';
-      // tslint:disable-next-line:forin
       for (const nodeName in this.nodeNameList) {
         mex += nodeName + ': ' + this.nodeNameList[nodeName] + '\n';
       }
@@ -83,7 +80,7 @@ export class AngularStats implements IAngularStats {
     }
   }
 
-  private analizeScope(currentScope: any): void {
+  private analizeScope(currentScope: any): void { // eslint-disable-line @typescript-eslint/no-explicit-any
     try {
       if (this.scopesList.indexOf(currentScope) === -1) {
         this.scopesList.push(currentScope);
@@ -156,7 +153,7 @@ export class AngularStats implements IAngularStats {
       const scopePrototype = Object.getPrototypeOf(this.rootScope);
       const angularDigest = scopePrototype.$digest;
 
-      scopePrototype.$digest = (...args: any[]) => {
+      scopePrototype.$digest = (...args: any[]) => { // eslint-disable-line @typescript-eslint/no-explicit-any
         const start = this.getTime();
         angularDigest.apply(this.rootScope, args);
         duration = this.getTime() - start;
