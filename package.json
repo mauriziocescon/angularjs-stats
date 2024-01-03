@@ -2,8 +2,8 @@
   "name": "angular-stats",
   "version": "1.2.4",
   "description": "Little utility to show stats about your angularjs app",
-  "author": "Maurizio Cescon <maurizio.cescon@gmail.com> (http://www.mauriziocescon.com)",
-  "homepage": "http://www.mauriziocescon.com",
+  "author": "Maurizio Cescon <maurizio.cescon@gmail.com>",
+  "homepage": "https://be.linkedin.com/in/mauriziocescon",
   "private": false,
   "engines": {
     "node": ">=20.9.0",
