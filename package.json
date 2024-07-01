@@ -63,7 +63,7 @@
     "karma-spec-reporter": "^0.0.36",
     "source-map-loader": "^5.0.0",
     "ts-loader": "^9.5.0",
-    "typescript": "^5.2.2",
+    "typescript": "^5.5.3",
     "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^5.1.4",
