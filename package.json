@@ -54,7 +54,7 @@
     "babel-loader": "^10.0.0",
     "clean-webpack-plugin": "^4.0.0",
     "eslint": "^9.10.0",
-    "eslint-webpack-plugin": "^4.2.0",
+    "eslint-webpack-plugin": "^5.0.2",
     "jasmine-core": "^5.1.1",
     "jasmine-node": "^3.0.0",
     "karma": "^6.4.2",
